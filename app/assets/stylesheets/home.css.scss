@@ -1,3 +1,117 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #fdeecd;
+}
+
+.fixed {
+  width: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.contain-to-grid {
+  .top-bar {
+    max-width: 980px;
+    margin: 0 auto;
+
+    .name {
+      h1 {
+        a.help {
+          color: #707070;
+          text-transform: uppercase;
+          font-weight: normal;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .top-bar-section ul li > a {
+      color: #707070;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    %ul {
+      %li {
+        %a {
+          color: #707070;
+        }
+      }
+    }
+  }
+}
+
+.splash {
+  background-image: url(/assets/hero.png);
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  min-height: 450px;
+}
+
+.highlights {
+  background-color: #fd8c6a;
+
+
+  .tagline {
+    margin-top: 100px;
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  h3 {
+    color: #ffffff;
+    margin-bottom: 0px;
+  }
+
+  h4 {
+    color: #161515;
+    font-weight: 200;
+  }
+}
+
+.top-bar ul.right {
+  float: right;
+  width: auto;
+  margin-bottom: 0;
+}
+
+.hero {
+  //min-height: 318px;
+
+  .logo {
+    display: block;
+    margin: 100px auto 20px;
+  }
+}
+
+.features {
+  background-color: #f7f9f9;
+  min-height: 50px;
+
+  h2 {
+    font-weight: 100;
+    margin-bottom: 5px;
+  }
+}
+
+.tagline {
+  text-align: center;
+  h1 {
+    font-weight: 100;
+    font-size: 3.8em;
+    margin-bottom: 0px;
+  }
+
+  small {
+    font-size: 1.1em;
+  }
+}
+
+.examples {
+  margin-top: 20px;
+}
