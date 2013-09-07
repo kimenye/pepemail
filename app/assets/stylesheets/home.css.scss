@@ -72,6 +72,10 @@ body {
     color: #161515;
     font-weight: 200;
   }
+
+  .contacts {
+    margin: 15px auto;
+  }
 }
 
 .top-bar ul.right {
@@ -90,13 +94,19 @@ body {
 }
 
 .features {
-  background-color: #f7f9f9;
+  background-color: #ffffff;
   min-height: 50px;
+
+
 
   h2 {
     font-weight: 100;
     margin-bottom: 5px;
   }
+}
+
+.features.secondary {
+  min-height: 200px;
 }
 
 .tagline {
