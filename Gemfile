@@ -22,6 +22,11 @@ group :development do
   gem 'html2haml'
   gem 'quiet_assets'
 end
+
+group :production do
+  gem 'pg'
+end
+
 group :test do
   gem 'capybara'
   gem 'minitest-spec-rails'
