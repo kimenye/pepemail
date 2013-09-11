@@ -14,36 +14,28 @@
   .row
     .large-12.columns
 
-    -#.large-12.large-centered.columns.tagline
-      %h1
-        = t(:banner)
-      %small
-        = t(:tagline)
--#.features.primary
-  .row
-    .large-2.columns
-      %h2
-        Features
-    .large-10.columns
+      = form_for(@contact, remote: true) do |f|
+        .large-3.columns
+          .field
+            = f.text_field :name, :placeholder => "Your Name", :required => "required"
+        .large-3.columns
+          .field
+            = f.email_field :email, :placeholder => "Your Email Address", :required => "required"
+        .large-6.columns
+          = f.submit 'Get in touch', :class => "button radius large"
+  .row.signup
+    .large-12.columns
+      .large-6.columns
+        %h3#signup-message
+          = t(:signup)
+      .large-6.columns
 
--#.highlights.primary
-  .row
-    .large-5.columns
-      .tagline
-        %h3
-          Send Better Email
-        %h4
-          Join the companies already using pepe
-    .large-7.columns
-      .examples
-        %img{:src => "/assets/examples.png" }
--#.features.secondary
--#.highlights.secondary
-  .row
-    .large-5.columns
-      .contacts
-        %img{:src => "/assets/features_contacts.png"}
-    .large-7.columns
-      .highlight.title
-        %h1
-          Stay on top of your contacts
+:javascript
+  $(function(){
+    $("form#new_contact").bind("ajax:success",function(event,data,status,xhr){
+      if (status == "success") {
+        var contact = $.parseJSON(data);
+        $('#signup-message').html("Thank you " + contact.name + " for your interest. We'll let you know when we launch.");
+      }
+    });
+  });

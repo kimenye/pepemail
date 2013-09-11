@@ -135,8 +135,34 @@ body {
 
 .join {
   background-color: #f8f8f8;
+  min-height: 200px;
+  padding-top: 50px;
+
+  button, .button {
+    box-shadow: none;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  //input:focus[type="text"],
+  //input:focus[type="email"] {
+  //  background-color: #aba7a7;
+  //  color: #ffffff;
+  //}
+
+  .signup {
+    h3 {
+      color: #161515;
+      font-weight: 100;
+    }
+  }
 }
 
 .examples {
   margin-top: 20px;
 }
+
