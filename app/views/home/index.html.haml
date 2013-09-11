@@ -8,9 +8,19 @@
         = t(:banner)
       %small
         = t(:tagline)
+      .join
+        = form_for(@contact, remote: true) do |f|
+          .large-12.columns
+            .field
+              = f.text_field :name, :placeholder => "Your Name", :required => "required"
+          .large-12.columns
+            .field
+              = f.email_field :email, :placeholder => "Your Email Address", :required => "required"
+          .large-6.columns
+            = f.submit 'Get in touch', :class => "button radius large"
     .large-7.columns
       %img{:src => "/assets/large_hero.png"}
-.join
+-#.join
   .row
     .large-12.columns
 

@@ -6,6 +6,16 @@ body {
   background-color: #fdeecd;
 }
 
+footer {
+  width: 100%;
+  background-image: url(/assets/hero.png);
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  position: fixed;
+  bottom: 0;
+  min-height: 200px;
+}
+
 .fixed {
   width: 100%;
   left: 0;
@@ -46,12 +56,12 @@ body {
   }
 }
 
-.splash {
-  background-image: url(/assets/hero.png);
-  background-position: bottom center;
-  background-repeat: repeat-x;
-  min-height: 450px;
-}
+//.splash {
+//  background-image: url(/assets/hero.png);
+//  background-position: bottom center;
+//  background-repeat: repeat-x;
+//  min-height: 450px;
+//}
 
 .highlights {
   background-color: #fd8c6a;
