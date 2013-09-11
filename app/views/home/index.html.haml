@@ -1,21 +1,32 @@
 .splash
   .row
-    .large-12.large-centered.columns.hero
+    .large-12.small-10.columns.hero
       %img.logo{:src => "/assets/logo.png"}
   .row
-    .large-12.large-centered.columns.tagline
+    .large-5.columns.tagline
       %h1
-        Email is cool again
+        = t(:banner)
       %small
-        Send simple beautiful marketing and transactional email
-.features.primary
+        = t(:tagline)
+    .large-7.columns
+      %img{:src => "/assets/large_hero.png"}
+.join
+  .row
+    .large-12.columns
+
+    -#.large-12.large-centered.columns.tagline
+      %h1
+        = t(:banner)
+      %small
+        = t(:tagline)
+-#.features.primary
   .row
     .large-2.columns
       %h2
         Features
     .large-10.columns
 
-.highlights.primary
+-#.highlights.primary
   .row
     .large-5.columns
       .tagline
@@ -26,8 +37,8 @@
     .large-7.columns
       .examples
         %img{:src => "/assets/examples.png" }
-.features.secondary
-.highlights.secondary
+-#.features.secondary
+-#.highlights.secondary
   .row
     .large-5.columns
       .contacts
