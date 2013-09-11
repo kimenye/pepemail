@@ -3,42 +3,33 @@
     .large-12.small-10.columns.hero
       %img.logo{:src => "/assets/logo.png"}
   .row
-    .large-5.columns.tagline
+    .large-12.large-centered.columns.tagline
       %h1
         = t(:banner)
       %small
         = t(:tagline)
-      .join
-        = form_for(@contact, remote: true) do |f|
-          .large-12.columns
-            .field
-              = f.text_field :name, :placeholder => "Your Name", :required => "required"
-          .large-12.columns
-            .field
-              = f.email_field :email, :placeholder => "Your Email Address", :required => "required"
-          .large-6.columns
-            = f.submit 'Get in touch', :class => "button radius large"
-    .large-7.columns
-      %img{:src => "/assets/large_hero.png"}
--#.join
-  .row
-    .large-12.columns
+        -#.hide-for-small.large-2.columns.signup
+          %a.button.radius.large.register
+            Sign Up
+      -#.show-for-small.small-12.columns
+        %a.button.radius.large.register-mobile
+          Sign Up
+    .large-2.columns
+-#.row
+  .promo
 
+    -#.join
       = form_for(@contact, remote: true) do |f|
-        .large-3.columns
+        .large-12.columns
           .field
             = f.text_field :name, :placeholder => "Your Name", :required => "required"
-        .large-3.columns
+        .large-12.columns
           .field
             = f.email_field :email, :placeholder => "Your Email Address", :required => "required"
         .large-6.columns
           = f.submit 'Get in touch', :class => "button radius large"
-  .row.signup
-    .large-12.columns
-      .large-6.columns
-        %h3#signup-message
-          = t(:signup)
-      .large-6.columns
+    -#.large-7.columns
+      %img{:src => "/assets/large_hero.png"}
 
 :javascript
   $(function(){

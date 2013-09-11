@@ -8,10 +8,7 @@ body {
 
 footer {
   width: 100%;
-  background-image: url(/assets/hero.png);
-  background-position: bottom center;
-  background-repeat: repeat-x;
-  position: fixed;
+  position: relative;
   bottom: 0;
   min-height: 200px;
 }
@@ -108,7 +105,7 @@ footer {
 
   .logo {
     display: block;
-    margin: 50px 20px;
+    margin: 50px auto;
   }
 }
 
@@ -131,10 +128,10 @@ footer {
 .tagline {
   text-align: center;
   h1 {
-    //font-weight: 100;
-    font-size: 2.4em;
+    font-size: 3.5em;
     margin-bottom: 0px;
     color: #d8373e;
+    font-weight: 100;
   }
 
   small {
@@ -143,26 +140,41 @@ footer {
   }
 }
 
+
+button, .button {
+  box-shadow: none;
+  color: #d8373e;
+  font-weight: 200;
+}
+
+.signup {
+
+  text-align: left;
+
+  .register {
+    margin-top: 35px;
+    margin-left: -170px;
+  }
+}
+
+.register-mobile {
+  margin-top: 20px;
+}
+
+button:hover, .button:hover {
+  color: #d8373e;
+}
+
 .join {
   background-color: #f8f8f8;
   min-height: 200px;
   padding-top: 50px;
-
-  button, .button {
-    box-shadow: none;
-  }
 
   input[type="text"],
   input[type="email"] {
     height: 40px;
     border-radius: 10px;
   }
-
-  //input:focus[type="text"],
-  //input:focus[type="email"] {
-  //  background-color: #aba7a7;
-  //  color: #ffffff;
-  //}
 
   .signup {
     h3 {
