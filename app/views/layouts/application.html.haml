@@ -3,6 +3,8 @@
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : t(:title)
+	  
+      %meta{:content => "6xBjgG1s-3KQtC3aly2QxuW6G7DYdxQ4S6dUhY0Onvs", :name => "google-site-verification"}
       %meta{:content => content_for?(:description) ? yield(:description) : t(:description), :name => "description"}
       %meta{:content => content_for?(:keywords) ? yield(:keywords) : t(:keywords), :name => "keywords"}
         = stylesheet_link_tag "application", :media => "all"
