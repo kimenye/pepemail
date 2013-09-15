@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$small-screen: emCalc(768);
+$medium-screen: emCalc(1280);
+$large-screen: emCalc(1440);
+
+$screen: "only screen";
+$small: "only screen and (min-width:"#{$small-screen}")";
+$medium: "only screen and (min-width:"#{$medium-screen}")";
+$large: "only screen and (min-width:"#{$large-screen}")";
+$landscape: "only screen and (orientation: landscape)";
+$portrait: "only screen and (orientation: portrait)";
+
 body {
   background-color: #fdeecd;
 }
@@ -106,7 +117,6 @@ footer {
   .logo {
     display: block;
     margin: 50px auto 20px auto;
-    max-width: 390px;
   }
 }
 
@@ -169,8 +179,15 @@ button, .button {
 }
 
 .register-mobile {
-  margin-top: -2px;
+  margin-top: -42px;
+  margin-right: 5px;
   float: right;
+}
+
+@media only screen and (min-width: 768px) {
+  .register-mobile {
+    margin-top: 0px;
+  }
 }
 
 button:hover, .button:hover {
