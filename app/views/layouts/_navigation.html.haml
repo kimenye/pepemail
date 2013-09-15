@@ -5,7 +5,10 @@
         %li.name
           %h1
             %a.help{:href => "mailto:hello@pepemail.co.ke"}
-              = t(:help)
+              .visible-for-small.hide-for-large
+                = t(:help_small)
+              .visible-for-large.hide-for-small.hide-for-medium
+                = t(:help)
       -#.signup
         %a.button.radius.large.register-mobile
           Sign Up
