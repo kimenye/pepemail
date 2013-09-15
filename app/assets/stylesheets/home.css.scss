@@ -156,6 +156,10 @@ button, .button {
 
 .signup {
 
+  button, .button {
+    line-height: 1.7em;
+  }
+
   text-align: left;
 
   .register {
@@ -174,14 +178,17 @@ button:hover, .button:hover {
 }
 
 .join {
-  background-color: #f8f8f8;
   min-height: 200px;
-  padding-top: 50px;
 
   input[type="text"],
   input[type="email"] {
     height: 40px;
-    border-radius: 10px;
+  }
+
+  .field {
+    label {
+      display: inline-block;
+    }
   }
 
   .signup {
