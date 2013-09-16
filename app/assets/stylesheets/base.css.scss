@@ -1,0 +1,34 @@
+body {
+  background-color: #fdeecd;
+}
+.contain-to-grid {
+  .top-bar {
+    max-width: 980px;
+    margin: 0 auto;
+
+    .name {
+      h1 {
+        a.help {
+          color: #707070;
+          text-transform: uppercase;
+          font-weight: normal;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .top-bar-section ul li > a {
+      color: #707070;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    %ul {
+      %li {
+        %a {
+          color: #707070;
+        }
+      }
+    }
+  }
+}

@@ -5,9 +5,9 @@
         %li.name
           %h1
             %a.help{:href => "mailto:hello@pepemail.co.ke"}
-              .visible-for-small.hide-for-large
-                = t(:help_small)
-              .visible-for-large.hide-for-small.hide-for-medium
+              -#.visible-for-small.hide-for-large
+              = t(:help_small)
+              -#.visible-for-large.hide-for-small.hide-for-medium
                 = t(:help)
       .signup
         %a.button.radius.large.register-mobile{"data-reveal-id" => "sign-up-form"}

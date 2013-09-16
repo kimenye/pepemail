@@ -13,9 +13,6 @@ $large: "only screen and (min-width:"#{$large-screen}")";
 $landscape: "only screen and (orientation: landscape)";
 $portrait: "only screen and (orientation: portrait)";
 
-body {
-  background-color: #fdeecd;
-}
 
 footer {
   width: 100%;
@@ -32,37 +29,7 @@ footer {
   z-index: 99;
 }
 
-.contain-to-grid {
-  .top-bar {
-    max-width: 980px;
-    margin: 0 auto;
 
-    .name {
-      h1 {
-        a.help {
-          color: #707070;
-          text-transform: uppercase;
-          font-weight: normal;
-          font-size: 13px;
-        }
-      }
-    }
-
-    .top-bar-section ul li > a {
-      color: #707070;
-      font-weight: normal;
-      text-transform: uppercase;
-    }
-
-    %ul {
-      %li {
-        %a {
-          color: #707070;
-        }
-      }
-    }
-  }
-}
 
 //.splash {
 //  background-image: url(/assets/hero.png);

@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %title= content_for?(:title) ? yield(:title) : t(:title)
+    = stylesheet_link_tag "admin", :media => "all"
+  %body{:class => "#{controller_name} #{action_name}"}
+    #container.container
+      %header
+        = render 'layouts/admin_navigation'
+      #main{:role => "main"}
+        = yield
