@@ -1,0 +1,2 @@
+class ProxyController < ApplicationController
+end
