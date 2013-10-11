@@ -1,2 +1,0 @@
-class ProxyController < ApplicationController
-end
