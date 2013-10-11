@@ -1,3 +1,11 @@
+.overlay {
+  background: #ccc;
+  background-image: -webkit-radial-gradient(center, circle cover, #dddddd, #a7a7a7 60%);
+  background-image: -moz-radial-gradient(center, circle cover, #dddddd, #a7a7a7 60%);
+  background-image: -o-radial-gradient(center, circle cover, #dddddd, #a7a7a7 60%);
+  background-image: radial-gradient(center, circle cover, #dddddd, #a7a7a7 60%);
+}
+
 .subscribe {
   margin: 80px auto;
   padding: 20px;
