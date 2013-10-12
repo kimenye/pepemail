@@ -22,3 +22,7 @@
             %a.sign-up{:href => '#'}
               Sign-up
           %li.divider
+          - if Rails.env == "development"
+            %li
+              %a.log-in{:href => new_user_session_path}
+                Log-in

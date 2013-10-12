@@ -1,0 +1,1 @@
+user = User.create! :name => "Test", :email => "hello@pepemail.co.ke", :password => "password", :password_confirmation => "password"
