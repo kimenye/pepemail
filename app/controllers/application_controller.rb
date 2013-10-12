@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
     #  "application"
     #end
   #end
+
+  def after_sign_in_path_for(resource)
+    @user = User.find(resource.id)
+    user_path(@user)
+  end
+
 end

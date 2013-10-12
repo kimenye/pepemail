@@ -4,11 +4,20 @@
       %ul.title-area
         %li.name
           %h1
-            = t(:name)
+            - if !user_signed_in?
+              %a.help{:href => "/"}
+                HOME
+            - else
+              %a.help{:href => user_path(current_user)}
+                = current_user.name
       %section.top-bar-section
         %ul.right
           %li.divider
-          %li
-            %a
-              Posts
-          %li.divider
+          - if Rails.env == "development"
+            %li
+              - if !user_signed_in?
+                %a.log-in{:href => new_user_session_path}
+                  Log-in
+              - else
+                = link_to "Sign out", destroy_user_session_path, :method => :delete
+            %li.divider

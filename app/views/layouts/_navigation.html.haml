@@ -5,7 +5,10 @@
         %li.name
           %h1
             %a.help{:href => "/"}
-              HOME
+              - if !user_signed_in?
+                HOME
+              - else
+                = current_user.name
       %section.top-bar-section
         %ul.right
           %li.divider
@@ -24,5 +27,10 @@
           %li.divider
           - if Rails.env == "development"
             %li
-              %a.log-in{:href => new_user_session_path}
-                Log-in
+              - if !user_signed_in?
+                %a.log-in{:href => new_user_session_path}
+                  Log-in
+              - else
+                = link_to "Sign out", destroy_user_session_path, :method => :delete
+                -#%a.log-out{:href => destroy_user_session_path, :method => :delete}
+                  Log-out
