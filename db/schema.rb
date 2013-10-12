@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906155108) do
+ActiveRecord::Schema.define(:version => 20131012162219) do
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.boolean  "subscribe"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "type"
+    t.decimal  "list_price"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

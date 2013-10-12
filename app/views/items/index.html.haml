@@ -1,0 +1,33 @@
+-#%h1 Listing items
+-#
+-#%table
+-#  %tr
+-#    %th Name
+-#    %th Description
+-#    %th Type
+-#    %th List price
+-#    %th
+-#    %th
+-#    %th
+-#
+-#  - @items.each do |item|
+-#    %tr
+-#      %td= item.name
+-#      %td= item.description
+-#      %td= item.type
+-#      %td= item.list_price
+-#      %td= link_to 'Show', item
+-#      %td= link_to 'Edit', edit_item_path(item)
+-#      %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+-#
+-#%br
+-#
+-#= link_to 'New Item', new_item_path
+.row.spacer
+  .large-3.columns
+  .large-9.columns
+    %table
+      %tr
+        %th Name
+        %th Description
+        %th List price

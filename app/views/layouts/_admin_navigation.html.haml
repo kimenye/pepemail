@@ -15,9 +15,11 @@
           %li.divider
           - if Rails.env == "development"
             %li
+              = link_to "Items", items_path
+            %li.divider
+            %li
               - if !user_signed_in?
                 %a.log-in{:href => new_user_session_path}
                   Log-in
               - else
                 = link_to "Sign out", destroy_user_session_path, :method => :delete
-            %li.divider
