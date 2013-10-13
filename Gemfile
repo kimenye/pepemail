@@ -12,6 +12,8 @@ gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
 gem 'thin'
+gem 'paperclip'
+
 group :assets do
   gem 'compass-rails'
   gem 'zurb-foundation'

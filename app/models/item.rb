@@ -1,3 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :description, :list_price, :name, :item_type
+  has_many :photos
+  belongs_to :user
+  attr_accessible :description, :list_price, :name, :item_type, :user_id
 end
