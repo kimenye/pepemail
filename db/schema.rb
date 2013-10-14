@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131013151751) do
+ActiveRecord::Schema.define(:version => 20131014083710) do
+
+  create_table "campaigns", :force => true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text     "tagline"
+    t.text     "description"
+    t.integer  "item_id"
+    t.decimal  "discount"
+    t.integer  "target"
+    t.string   "campaign_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "campaigns", ["item_id"], :name => "index_campaigns_on_item_id"
 
   create_table "contacts", :force => true do |t|
     t.string   "name"

@@ -1,6 +1,7 @@
 /**
  *= require foundation_and_overrides
  *= require base
+ *= require datepicker
  *= require_self
 */
 
@@ -10,7 +11,7 @@
 }
 
 #main {
-  margin-top: 45px;
+  //margin-top: 45px;
 }
 
 .signup {
@@ -37,8 +38,38 @@
   }
 }
 
-.subheader {
-  border-bottom: 1px solid #6f6f6f;
+.sidebar {
+  .subheader {
+    border-bottom: none;
+  }
+
+  p {
+    font-size: .8em;
+  }
 }
+
+.subheader {
+  border-bottom: 1px solid #e6e6e6;
+
+  .button {
+    float: right;
+  }
+
+  small {
+    font-weight: bold;
+    color: #161515;
+  }
+}
+
+.fields {
+  margin-bottom: 20px;
+}
+
+.datepicker td.active.day, .datepicker th.active.day {
+  background: #000000;
+  color: #ffffff;
+}
+
+
 
 

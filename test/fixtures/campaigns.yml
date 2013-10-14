@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2013-10-14 11:37:11
+  end_date: 2013-10-14 11:37:11
+  tagline: MyText
+  description: MyText
+  item: 
+  discount: 9.99
+  target: 1
+  campaign_type: MyString
+
+two:
+  start_date: 2013-10-14 11:37:11
+  end_date: 2013-10-14 11:37:11
+  tagline: MyText
+  description: MyText
+  item: 
+  discount: 9.99
+  target: 1
+  campaign_type: MyString

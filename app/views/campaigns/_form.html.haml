@@ -1,0 +1,78 @@
+= form_for @campaign, :class => "custom" do |f|
+  .row.fields
+    .large-3.columns.sidebar
+      %h4.subheader
+        Campaign details
+      %p
+        Enter the details of your campaign
+    .large-9.columns
+      .row
+        .large-12.columns
+          = f.label :tagline
+          = f.text_field :tagline
+      .row
+        .large-4.columns
+          = f.label :start_date
+          = f.text_field :start_date, :class => "date"
+        .large-4.columns
+          = f.label :end_date
+          = f.text_field :end_date, :class => "date"
+        .large-4.columns
+          %label
+            Target
+            %small
+              \# engagementsx
+          = f.text_field :target
+      .row
+        .large-12.columns
+          = f.label :description
+          = f.text_area :description
+      .row
+        .large-4.columns
+          %label
+            Discount
+            %small
+              \% off
+          = f.text_field :discount
+        .large-4.columns
+          = f.label :campaign_type
+          = f.select :campaign_type, ["Sale", "Email Campaign"], {}
+        .large-4.columns
+          = f.label :item_id
+          = f.select :item_id, Item.where("user_id = ?", current_user.id).collect { |i| [i.name, i.id] }, {}
+      .row
+        .large-4.offset-6.columns
+          = f.submit "Save", :class => "button success"
+  -#- if @campaign.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@campaign.errors.count, "error")} prohibited this campaign from being saved:"
+      %ul
+        - @campaign.errors.full_messages.each do |msg|
+          %li= msg
+  -#.field
+  -#  = f.label :tagline
+  -#  = f.text_field :tagline
+  -#.field
+  -#  = f.label :start_date
+  -#  = f.text_field :start_date, :class => "date"
+  -#.field
+  -#  = f.label :end_date
+  -#  = f.text_field :end_date, :class => "date"
+  -#.field
+  -#  = f.label :description
+  -#  = f.text_area :description
+  -#.field
+  -#  = f.label :item
+  -#  = f.text_field :item
+  -#.field
+  -#  = f.label :discount
+  -#  = f.text_field :discount
+  -#.field
+  -#  = f.label :target
+  -#  = f.number_field :target
+  -#.field
+  -#  = f.label :campaign_type
+  -#  = f.text_field :campaign_type
+  -#.actions
+  -#  = f.submit 'Save'
+

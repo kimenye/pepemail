@@ -5,7 +5,7 @@ body.admin {
   background-color: #ffffff;
 
   header {
-    margin-bottom: 80px;
+    //margin-bottom: 40px;
   }
 }
 .contain-to-grid {
@@ -38,4 +38,15 @@ body.admin {
       }
     }
   }
+}
+
+.primary-icons {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(/assets/primary_icons.png) no-repeat;
+}
+
+.primary-icons .campaign {
+
 }
