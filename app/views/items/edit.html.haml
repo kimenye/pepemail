@@ -13,10 +13,11 @@
             Images
       .row
         .large-12.columns
-          %ul.large-block-grid-4
+          %ul.large-block-grid-4{"data-clearing" => ""}
             - @item.photos.each do |photo|
               %li
-                = image_tag photo.image.url(:thumb), :class => "th"
+                %a{:href => photo.image.url(:medium)}
+                  = image_tag photo.image.url(:thumb), :class => "th", "data-caption" => photo.caption
     .row
       .large-12.columns
         %h5.subheader

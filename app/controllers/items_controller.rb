@@ -1,10 +1,12 @@
 class ItemsController < ApplicationController
   layout "admin"
-
+  before_filter :authenticate_user!
+  
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    
+    @items = Item.where("user_id = ?", current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,10 +45,11 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(params[:item])
+    @item.user_id = current_user.id
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to edit_item_path(@item), notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
