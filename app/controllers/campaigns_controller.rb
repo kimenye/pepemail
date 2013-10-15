@@ -5,7 +5,7 @@ class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.all
+    @campaigns = Campaign.joins('inner join items on items.id = campaigns.item_id').where('items.user_id = ?',current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb

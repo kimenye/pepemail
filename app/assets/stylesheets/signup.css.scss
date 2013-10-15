@@ -1,4 +1,4 @@
-.overlay {
+.overlay, .sessions.new {
   background: #ccc;
   background-image: -webkit-radial-gradient(center, circle cover, #dddddd, #a7a7a7 60%);
   background-image: -moz-radial-gradient(center, circle cover, #dddddd, #a7a7a7 60%);
@@ -8,7 +8,7 @@
 
 .subscribe {
   margin: 80px auto;
-  padding: 20px;
+  padding: 20px 20px 0;;
   width: 300px;
   background: white;
   border-radius: 5px;
@@ -69,11 +69,11 @@
 .subscribe-submit {
   display: block;
   position: absolute;
-  top: 15px;
+  top: 60px;
   right: 15px;
   padding-left: 15px;
-  height: 35px;
-  width: 60px;
+  height: 32px;
+  width: 61px;
   background: #60e160;
   border: 1px solid;
   border-color: #4c9d50 #4c9d50 #4c9d50 #55af5a;
