@@ -9,6 +9,12 @@ body.admin {
   }
 }
 
+select {
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  height: 28px;
+}
+
 .spacer {
   margin-top: 10px;
 }
@@ -52,6 +58,32 @@ body.admin {
   background: url(/assets/primary_icons.png) no-repeat;
 }
 
-.primary-icons .campaign {
+.other-icons {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(/assets/other_icons.png) no-repeat;
+}
 
+.other-icons.profile {
+  background-position: -40px 0px;
+}
+
+.error_box {
+  background:  #FAE1E1;
+  border-bottom: 1px solid #EBBABA;
+  margin-top: -15px;
+  padding: 20px 20px 0px 50px;
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 14px;
+    margin: 0 0 5px;
+    font-weight: normal;
+  }
+
+  li {
+    margin-left: 25px;
+    font-size: 14px;
+  }
 }

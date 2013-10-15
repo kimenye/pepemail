@@ -1,7 +1,8 @@
-%h1 Editing user
-
+.row
+  .large-12.columns
+    %h3.subheader
+      %i.other-icons.profile
+      My Profile /
+      %small
+        = @user.name
 = render 'form'
-
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path

@@ -43,5 +43,5 @@
           = f.select :item_id, Item.where("user_id = ?", current_user.id).collect { |i| [i.name, i.id] }, {}
       .row
         .large-4.offset-6.columns
-          = f.submit "Save", :class => "button success"
+          = f.submit "Save", :class => "button small"
 = textile_editor_initialize

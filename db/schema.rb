@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014083710) do
+ActiveRecord::Schema.define(:version => 20131015113602) do
 
   create_table "campaigns", :force => true do |t|
     t.datetime "start_date"
@@ -77,6 +77,13 @@ ActiveRecord::Schema.define(:version => 20131014083710) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.string   "company_name"
+    t.string   "website"
+    t.string   "email_address"
+    t.string   "facebook_page"
+    t.string   "twitter_handle"
+    t.string   "phone_number"
+    t.string   "alternate_phone_number"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
