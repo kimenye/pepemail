@@ -41,18 +41,7 @@
         .large-6.columns
           = f.label :facebook_page
           = f.text_field :facebook_page
-
   .row
     .large-3.columns.sidebar
     .large-9.columns
       = f.submit 'Save', :class => "button small"
-
-  -#- if @user.errors.any?
-  -#  #error_explanation
-  -#    %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-  -#    %ul
-  -#      - @user.errors.full_messages.each do |msg|
-  -#        %li= msg
-  -#
-  -#.actions
-  -#  = f.submit 'Save'
