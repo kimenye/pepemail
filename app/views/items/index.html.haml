@@ -5,10 +5,9 @@
       Items /
       %small
         all your items
+      = link_to 'New Item', new_item_path, :class => "button tiny"
 .row.spacer
-  .large-3.columns
-    = link_to 'New Item', new_item_path, :class => "button"
-  .large-9.columns
+  .large-12.columns
     %table
       %thead
         %tr
