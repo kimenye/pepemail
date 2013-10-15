@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'thin'
 gem 'paperclip'
 gem 'jquery-datatables-rails'
+gem 'redcloth-rails'
 
 group :assets do
   gem 'compass-rails'

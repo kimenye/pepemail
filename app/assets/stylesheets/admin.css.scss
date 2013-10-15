@@ -2,6 +2,7 @@
  *= require foundation_and_overrides
  *= require base
  *= require datepicker
+ *= require textile-editor
  *= require_self
 */
 
@@ -70,6 +71,10 @@
   color: #ffffff;
 }
 
+
+.edit_campaign textarea {
+  height: 200px;
+}
 
 
 

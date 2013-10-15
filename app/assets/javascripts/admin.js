@@ -14,11 +14,11 @@
 //= require jquery_ujs
 //= require foundation
 //= require foundation-datepicker
+//= require textile-editor
+//= require ./textile-editor-config
 //= require_self
 
 $(function(){
     $(document).foundation();
-//    $('.date').fdatepicker();
     $('.date').fdatepicker({ format: 'dd/mm/yyyy'});
-//    $('.datatable').dataTable();
 });

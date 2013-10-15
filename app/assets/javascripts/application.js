@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require textile-editor
+//= require ./textile-editor-config
 //= require_self
 
 $(function(){
