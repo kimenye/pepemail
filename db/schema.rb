@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131015113602) do
+ActiveRecord::Schema.define(:version => 20131026080717) do
 
   create_table "campaigns", :force => true do |t|
     t.datetime "start_date"
@@ -22,8 +22,14 @@ ActiveRecord::Schema.define(:version => 20131015113602) do
     t.decimal  "discount"
     t.integer  "target"
     t.string   "campaign_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "background_color"
+    t.string   "secondary_color"
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
   end
 
   add_index "campaigns", ["item_id"], :name => "index_campaigns_on_item_id"

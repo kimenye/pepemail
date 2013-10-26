@@ -1,4 +1,6 @@
 Pepemail::Application.routes.draw do
+  get "public/show"
+
   resources :campaigns
 
   root :to => "home#index"

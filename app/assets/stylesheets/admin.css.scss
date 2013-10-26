@@ -3,6 +3,7 @@
  *= require base
  *= require datepicker
  *= require textile-editor
+ *= require jquery.minicolors
  *= require_self
 */
 
@@ -76,5 +77,11 @@
   height: 200px;
 }
 
+.campaigns {
+  .minicolors-theme-default .minicolors-swatch {
+    top: 1px;
+    left: 0px;
+  }
+}
 
 
