@@ -45,15 +45,19 @@
           = f.label :item_id
           = f.select :item_id, Item.where("user_id = ?", current_user.id).collect { |i| [i.name, i.id] }, {}
       .row
-        .large-4.columns
+        .large-6.columns
           = f.label :background_color
           = f.text_field :background_color, :class => "color-picker"
-        .large-4.columns
+        .large-6.columns
           = f.label :secondary_color
           = f.text_field :secondary_color, :class => "color-picker"
-        .large-4.columns
+      .row
+        .large-6.columns
           = f.label :hero
           = f.file_field :hero
+        .large-6.columns
+          = f.label :bottom
+          = f.file_field :bottom
       .row
         .large-4.offset-6.columns
           = f.submit "Save", :class => "button small"
