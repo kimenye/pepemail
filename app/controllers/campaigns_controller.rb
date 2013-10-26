@@ -13,6 +13,11 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def preview
+    @campaign = Campaign.find(params[:id])
+    render :preview, :layout => "public"
+  end
+
   # GET /campaigns/1
   # GET /campaigns/1.json
   def show

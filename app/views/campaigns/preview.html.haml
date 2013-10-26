@@ -1,0 +1,25 @@
+= content_for :title, @campaign.tagline
+
+- content_for :head do
+  :css
+    body { background-color: #{@campaign.background_color}; }
+    a { color: #{@campaign.secondary_color}; }
+.row
+  .large-8.columns.large-centered
+    .social-media-icons
+      .link
+        %i.fi-social-facebook
+        %a{:href => ""}
+          LIKE
+      .link
+        %i.fi-social-twitter
+        %a{:href => ""}
+          TWEET
+      .link
+        %i.fi-share
+        %a{:href => ""}
+          FORWARD
+.row
+  .large-8.columns.large-centered
+    %img.hero{:src => @campaign.hero.url}
+.row
