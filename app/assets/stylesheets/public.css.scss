@@ -33,4 +33,24 @@
 	min-height: 100px;
 	max-width: 600px;
 	padding-top: 17px;
+	padding-bottom: 17px;
+
+	h1 {
+		text-transform: uppercase;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		font-size: 1.8em;
+	}
+
+	h2 {
+		font-weight: 100;
+		font-size: 21px;
+		margin-bottom: 0px;
+	}
+
+	h3 {
+		font-weight: 100;
+		margin-top: 0px;
+		font-size: 1.17em;
+	}
 }
