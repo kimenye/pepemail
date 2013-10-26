@@ -16,7 +16,7 @@
 	}
 
 	i {
-		font-size: 20px;
+		font-size: 18px;
 		color: #ffffff;
 	}
 
@@ -26,4 +26,10 @@
 		position: relative;
 		top: -3px;
 	}
+}
+
+.main {
+	background-color: #ffffff;
+	min-height: 100px;
+	max-width: 600px;
 }
