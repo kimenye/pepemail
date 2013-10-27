@@ -4,6 +4,8 @@
 *= require foundation-icons
 */
 
+@import 'variables';
+
 .social-media-icons {
 	float: right;
 	margin-top: 10px;
@@ -40,17 +42,27 @@
 		margin-top: 0px;
 		margin-bottom: 0px;
 		font-size: 1.8em;
+		line-height: 1em;
 	}
 
 	h2 {
-		font-weight: 100;
+		font-weight: 200;
 		font-size: 21px;
 		margin-bottom: 0px;
 	}
 
 	h3 {
-		font-weight: 100;
+		font-weight: 200;
 		margin-top: 0px;
-		font-size: 1.17em;
+		font-size: 1em;
+	}
+}
+
+@media #{$small} { 
+
+	.main {
+		.description {
+			padding-left: 30px;
+		}
 	}
 }
