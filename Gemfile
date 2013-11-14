@@ -16,6 +16,7 @@ gem 'paperclip'
 gem 'jquery-datatables-rails'
 gem 'redcloth-rails'
 gem 'jquery-minicolors-rails'
+gem 'prawn'
 
 group :assets do
   gem 'compass-rails'
