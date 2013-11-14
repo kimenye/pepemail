@@ -27,7 +27,24 @@ Prawn::Document.generate('attachment.pdf') do |pdf|
   pdf.pad(6) { pdf.formatted_text [{ :text => "RE: 2012 MOTOR INSURANCE RENEWAL- 14-03-2013", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
 
   pdf.text "We write to invite renewal of your vehicle detailed below: ", :size => 9 
-  pdf.move_down 5    
+  pdf.move_down 5  
+
+  summary = [
+    ["<color rgb='FFFFFF'>REG NO:   KBN 550R</color>" , "<color rgb='FFFFFF'>SCOPE OF COVER: COMPREHENSIVE</color>"],
+    ["VALUE     KSHS. 70,000" , ""],
+    ["<color rgb='FFFFFF'>RENEWAL DATE (as per current policy)</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: 14-03-2014</color>"],
+  ]  
+
+  pdf.table summary, :cell_style => { :inline_format => true, :size => 8 }, :width => 530, :column_widths => [265, 265] do
+    row(0).background_color = "C70005"
+    # row(0).color = "C70005"
+    row(2).background_color = "C70005"
+    row(0).border_color = "FFFFFF"
+    row(1).border_color = "FFFFFF"
+    row(2).border_color = "FFFFFF"
+  end
+
+  pdf.move_down 10
 
   pdf.pad(6) { pdf.formatted_text [{ :text => "RENEWAL PREMIUM COMPUTATION", :size => 9, :styles => [:bold, :underline], :lead => 5}] }
     
@@ -70,7 +87,7 @@ Prawn::Document.generate('attachment.pdf') do |pdf|
   
   pdf.move_down 5
   pdf.text  "Kindly avail copies of your National ID, vehicle logbook and PIN certificate at renewal.", :size => 9              
-  pdf.move_down 5
+  pdf.move_down 10
   pdf.text  "Yours Faithfully,", :size => 9              
   pdf.image "signature.jpg"
   pdf.formatted_text [{:text => "Carolyne KIoria | Account Manager - Affinity Department", :styles => [:bold]}], :size => 9
