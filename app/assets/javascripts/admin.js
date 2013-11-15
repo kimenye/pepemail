@@ -14,8 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require foundation-datepicker
-//= require textile-editor
-//= require ./textile-editor-config
 //= require jquery.minicolors
 //= require_self
 

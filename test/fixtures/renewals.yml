@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  postal_address: MyString
+  city: MyString
+  mobile_number: MyString
+  email_address: MyString
+  ref: MyString
+  value: 9.99
+  registration_number: MyString
+  renewal_date: 2013-11-14 18:51:13
+  expiry_date: 2013-11-14 18:51:13
+  amount_due: 9.99
+  renewal_type: MyString
+  computation: 9.99
+
+two:
+  first_name: MyString
+  last_name: MyString
+  postal_address: MyString
+  city: MyString
+  mobile_number: MyString
+  email_address: MyString
+  ref: MyString
+  value: 9.99
+  registration_number: MyString
+  renewal_date: 2013-11-14 18:51:13
+  expiry_date: 2013-11-14 18:51:13
+  amount_due: 9.99
+  renewal_type: MyString
+  computation: 9.99

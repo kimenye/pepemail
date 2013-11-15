@@ -4,10 +4,11 @@
       %ul.title-area
         %li.name
           %h1
-            %a.help{:href => "/"}
-              - if !user_signed_in?
+            - if !user_signed_in?
+              %a.help{:href => "/"}              
                 HOME
-              - else
+            - else
+              %a.help{:href => rails_admin_path}              
                 = current_user.name
       %section.top-bar-section
         %ul.right

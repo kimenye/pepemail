@@ -1,11 +1,16 @@
 Pepemail::Application.routes.draw do
+  
+
+  
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   get "public/show"
 
   resources :campaigns
 
   root :to => "home#index"
-  match 'coupons' => 'home#coupons'  
-  match "/campaigns/:id/preview" => "campaigns#preview", :as => "campaign_preview", via: [:get]
+  get 'coupons' => 'home#coupons'  
+  get "/campaigns/:id/preview" => "campaigns#preview", :as => "campaign_preview", via: [:get]
   devise_for :users
   resources :users
 
