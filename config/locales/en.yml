@@ -12,3 +12,11 @@ en:
   keywords: bulk email and sms marketing platform, bulk email and sms service, bulk email sending software, bulk mailer software, email advertising, communication tool, email marketing companies, email marketing solutions, mass email service, social integration, south african email marketing solutions, marketing software, internet marketing, bulk email advertising.
   description: Bulk Email & SMS Marketing Software with Social Sharing. Digital Marketing Marketing with Mobile Messaging, Rich Analytics & Powerful Integration.
   signup: We are currently in beta, sign up and we'll get back to you when we launch
+  admin:
+    actions:
+      upload_renewals:
+        menu: Import Renewals
+      send_renewals:
+        menu: Send Reminders
+        title: Send Renewals
+        breadcrumb: Send Renewals
