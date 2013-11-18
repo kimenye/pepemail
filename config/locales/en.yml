@@ -16,6 +16,8 @@ en:
     actions:
       upload_renewals:
         menu: Import Renewals
+        title: Import Renewals
+        breadcrumb: Import Renewals
       send_renewals:
         menu: Send Reminders
         title: Send Renewals

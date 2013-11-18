@@ -33,6 +33,8 @@ gem 'rails_admin'
 gem 'paperclip'
 gem 'zurb-foundation'
 # gem 'jquery-minicolors-rails'
+gem 'pry'
+gem 'pry-nav'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

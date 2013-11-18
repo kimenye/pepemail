@@ -1,0 +1,13 @@
+/ = form_tag(:method => "POST", :multipart => true)
+%form.form-horizontal.denser{:method => "POST", :mutlipart => true}
+  %fieldset
+    .control-group
+      %label.control-label{:for => "import_file"}
+        Import File
+      .controls
+        %input{:type => "file", :name => "import_file"} 
+        %p.help-block
+          Select the .xls file with the renewals to be imported
+  .form-actions
+    %button.primary{:type => "submit"}
+      Upload
