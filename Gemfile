@@ -35,6 +35,8 @@ gem 'zurb-foundation'
 # gem 'jquery-minicolors-rails'
 gem 'pry'
 gem 'pry-nav'
+gem 'simple_xlsx_reader'
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
