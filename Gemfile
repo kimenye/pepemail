@@ -36,6 +36,7 @@ gem 'zurb-foundation'
 gem 'pry'
 gem 'pry-nav'
 gem 'simple_xlsx_reader'
+gem 'prawn'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
