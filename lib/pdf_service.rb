@@ -2,12 +2,26 @@ require 'prawn'
 
 # I am sure there is a better way
 require 'active_support/core_ext/integer/inflections'
-time = Time.new
-day_ord = time.day.ordinalize
-@current_date = time.strftime("#{day_ord} %B %Y")
+t = Time.new
+# day_ord = t.day.ordinalize
+# @current_date = t.strftime("#{day_ord} / %B / %Y")
+@current_date = "#{t.day.ordinalize} / #{t.strftime("%B / %Y")}"
 #
 
-def generate email, client_name
+email_title = @email_title
+user_address = @user_address #Address of the pepemail user eg AON
+user_logo = @user_logo # users logo eg AON
+user_sales = @user_sales #email addresses for their sales agents default value is default company email
+client_name = @client_name #client is who the company is sending the pdf to
+client_postal_address = @client_postal_address
+client_email = @client_email
+car_reg = @car_reg
+car_value = @car_value
+renewal_date = @renewal_date
+exp_date = @exp_date
+scope_cover = @scope_cover
+
+def generate email_title = "You can add a title", user_address = "", user_logo = "logo", user_sales = "default", client_name = "John Doe", client_postal_address = "12345 Nairobi", client_email = "", car_reg = "", car_value = "500 000", renewal_date = "(As per current policy)", exp_date = "1/2/13", scope_cover = "COMPREHENSIVE"
   Prawn::Document.generate('attachment.pdf') do |pdf|
     pdf.image "logo.png", :scale => 0.7, :vposition => 0, :position => :left
 
@@ -20,27 +34,27 @@ def generate email, client_name
       pdf.text "Fax: 254 020 2722740 / 2722574", :align => :right, :size => 9
       pdf.formatted_text [
         {:text => "Email: ", :styles => [:italic] },
-        {:text => email, :color => "0000FF", :link => "mailto:pld@aon.co.ke" },
+        {:text => @user_sales, :color => "0000FF", :link => "mailto:@user_sales" },
         {:text => " Web: ", :styles => [:italic] },
         {:text => "www.aon.com/ke/en", :color => "ff0000", :link => "http://www.aon.com/ke/en"}
         ], :align => :right, :size => 9
     end
 
-    pdf.pad(8) { pdf.text @current_date, :size => 9 }
-    pdf.text client_name, :size => 9
+    pdf.pad(8) { pdf.text "#{@current_date}", :size => 9 }
+    pdf.text @client_name, :size => 9
     pdf.text "P.O Box 30589", :size => 9
     pdf.text "NAIROBI", :size => 9
 
-    pdf.pad(6) { pdf.text "Dear Customer,", :size => 9 }
-    pdf.pad(6) { pdf.formatted_text [{ :text => "RE: 2012 MOTOR INSURANCE RENEWAL- 14-03-2013", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
+    pdf.pad(6) { pdf.text "Dear #{@client_name},", :size => 9 }
+    pdf.pad(6) { pdf.formatted_text [{ :text => "#{@email_title} - #{@current_date}", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
 
     pdf.text "We write to invite renewal of your vehicle detailed below: ", :size => 9
     pdf.move_down 5
 
     summary = [
-      ["<color rgb='FFFFFF'>REG NO:   KBN 550R</color>" , "<color rgb='FFFFFF'>SCOPE OF COVER: COMPREHENSIVE</color>"],
-      ["VALUE     KSHS. 70,000" , ""],
-      ["<color rgb='FFFFFF'>RENEWAL DATE (as per current policy)</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: 14-03-2014</color>"],
+      ["<color rgb='FFFFFF'>REG NO:   #{@car_reg}/color>" , "<color rgb='FFFFFF'>SCOPE OF COVER: #{@scope_cover}</color>"],
+      ["VALUE     KSHS. #{@car_value}" , ""],
+      ["<color rgb='FFFFFF'>RENEWAL DATE #{@renewal_date}</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: #{@exp_date}</color>"],
     ]
 
     pdf.table summary, :cell_style => { :inline_format => true, :size => 8 }, :width => 530, :column_widths => [265, 265] do
@@ -102,6 +116,6 @@ def generate email, client_name
   end
 end
 
-generate "a@b.com", "Caroline"
+generate @client_name = "John Gitau", @user_sales = "new@email.address", @car_value = 500000, @email_title = "What is this"
 
 #
