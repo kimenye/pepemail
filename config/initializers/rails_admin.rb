@@ -6,7 +6,7 @@ RailsAdmin.config do |config|
     	show
     	edit
     	delete
-		
+
 		collection :send_renewals do
 			register_instance_option :link_icon do
           		'icon-envelope-alt'
@@ -19,7 +19,7 @@ RailsAdmin.config do |config|
 			end
 
 			register_instance_option :visible? do
-				binding.pry
+				# binding.pry
 			end
 		end
 	end

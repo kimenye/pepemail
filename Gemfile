@@ -19,6 +19,10 @@ gem 'email_validator'
 gem 'date_validator'
 gem 'quiet_assets'
 
+gem 'pry'
+gem 'pry-nav'
+gem 'prawn'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
