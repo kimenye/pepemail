@@ -14,6 +14,21 @@ RailsAdmin.config do |config|
 			register_instance_option :visible? do
 				bindings[:abstract_model].to_s == "Renewal"
 			end
+
+			register_instance_option :http_methods do
+			    [:get, :post]
+			end
+
+			register_instance_option :controller do
+				Proc.new do
+					if params.has_key?(:submit)
+						count = RenewalService.send_renewals
+						redirect_to back_or_index, notice: "#{count} Renewals sent"
+					else
+						render "send_renewals"
+					end
+				end
+			end			
 		end
 
 		collection :upload_renewals do
@@ -30,7 +45,7 @@ RailsAdmin.config do |config|
 			end
 
 			register_instance_option :pjax? do
-          		false
+          		true
         	end
 
 
