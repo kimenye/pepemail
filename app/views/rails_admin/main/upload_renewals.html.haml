@@ -1,0 +1,15 @@
+%form.form-horizontal.denser{:method => "POST", :enctype => "multipart/form-data" }
+  %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
+  %fieldset
+    .control-group
+      %label.control-label{:for => "import_file"}
+        Import File
+      .controls
+        %input{:type => "file", :name => "import_file"} 
+        %p.help-block
+          Select the .xls file with the renewals to be imported
+  .form-actions
+    %button.btn.btn-primary{:type => "submit", :name => "submit"}
+      Upload
+
+
