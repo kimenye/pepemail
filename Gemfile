@@ -19,6 +19,10 @@ gem 'email_validator'
 gem 'date_validator'
 gem 'quiet_assets'
 
+gem 'pry'
+gem 'pry-nav'
+gem 'prawn'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -36,7 +40,8 @@ gem 'zurb-foundation'
 gem 'pry'
 gem 'pry-nav'
 gem 'simple_xlsx_reader'
-
+gem 'prawn'
+gem 'httparty'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
