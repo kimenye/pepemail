@@ -22,3 +22,7 @@ en:
         menu: Send Reminders
         title: Send Renewals
         breadcrumb: Send Renewals
+      send_renewal:
+        menu: Send Reminder
+        title: Send Renewal
+        breadcrumb: Send Renewal
