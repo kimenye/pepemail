@@ -3,10 +3,6 @@ Pepemail
 
 Launch website of pepe
 
-Requires
-------------------------
-Ruby 1.9.3
-
 Installation
 ------------------------
 1. Clone the repo
