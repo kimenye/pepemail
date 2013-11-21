@@ -46,6 +46,7 @@ gem 'httparty'
 gem 'rest-client'
 gem 'rails_12factor', group: :production
 
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -65,6 +66,7 @@ end
 
 group :production do
   gem "pg"
+  gem 'rails_serve_static_assets'
 end
 
 # Use ActiveModel has_secure_password

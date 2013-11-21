@@ -230,6 +230,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_12factor
   rails_admin
+  rails_serve_static_assets
   rest-client
   sass-rails (~> 4.0.0)
   sdoc
