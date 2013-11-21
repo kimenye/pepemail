@@ -33,7 +33,7 @@ class AttachmentService
 		    summary = [
 		      ["<color rgb='FFFFFF'>REG NO:   #{renewal.registration_number}</color>" , "<color rgb='FFFFFF'>SCOPE OF COVER: #{renewal.renewal_type}</color>"],
 		      ["VALUE     KSHS. #{renewal.value.to_s}" , ""],
-		      ["<color rgb='FFFFFF'>RENEWAL DATE #{renewal.renewal_date.strftime("%d %b %Y")}</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: #{renewal.expiry_date.strftime("%d %b %Y")}</color>"],
+		      ["<color rgb='FFFFFF'>RENEWAL DATE: #{renewal.renewal_date.strftime("%d %b %Y")}</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: #{renewal.expiry_date.strftime("%d %b %Y")}</color>"],
 		    ]  
 
 		    pdf.table summary, :cell_style => { :inline_format => true, :size => 8 }, :width => 530, :column_widths => [265, 265] do
