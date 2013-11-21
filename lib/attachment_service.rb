@@ -24,8 +24,8 @@ class AttachmentService
     		pdf.text "P.O Box 30589", :size => 9
     		pdf.text "NAIROBI", :size => 9
 
-    		pdf.pad(6) { pdf.text "Dear  #{renewal.first_name} #{renewal.last_name},", :size => 9 }
-		    pdf.pad(6) { pdf.formatted_text [{ :text => "RE: 2012 MOTOR INSURANCE RENEWAL- 14-03-2013", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
+    		pdf.pad(6) { pdf.text "Dear  customer,", :size => 9 }
+		    pdf.pad(6) { pdf.formatted_text [{ :text => "RE: #{renewal.expiry_date.year} MOTOR INSURANCE RENEWAL- #{renewal.renewal_date.strftime("%d %b %Y")}", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
 
 		    pdf.text "We write to invite renewal of your vehicle detailed below: ", :size => 9 
 		    pdf.move_down 5  
@@ -33,7 +33,7 @@ class AttachmentService
 		    summary = [
 		      ["<color rgb='FFFFFF'>REG NO:   #{renewal.registration_number}</color>" , "<color rgb='FFFFFF'>SCOPE OF COVER: #{renewal.renewal_type}</color>"],
 		      ["VALUE     KSHS. #{renewal.value.to_s}" , ""],
-		      ["<color rgb='FFFFFF'>RENEWAL DATE (as per current policy)</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: 14-03-2014</color>"],
+		      ["<color rgb='FFFFFF'>RENEWAL DATE #{renewal.renewal_date.strftime("%d %b %Y")}</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: #{renewal.expiry_date.strftime("%d %b %Y")}</color>"],
 		    ]  
 
 		    pdf.table summary, :cell_style => { :inline_format => true, :size => 8 }, :width => 530, :column_widths => [265, 265] do
