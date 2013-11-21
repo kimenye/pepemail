@@ -31,8 +31,8 @@ class AttachmentService
 		    pdf.move_down 5  
 
 		    summary = [
-		      ["<color rgb='FFFFFF'>REG NO:   renewal.registration</color>" , "<color rgb='FFFFFF'>SCOPE OF COVER: COMPREHENSIVE</color>"],
-		      ["VALUE     KSHS. 70,000" , ""],
+		      ["<color rgb='FFFFFF'>REG NO:   #{renewal.registration_number}</color>" , "<color rgb='FFFFFF'>SCOPE OF COVER: #{renewal.renewal_type}</color>"],
+		      ["VALUE     KSHS. #{renewal.value.to_s}" , ""],
 		      ["<color rgb='FFFFFF'>RENEWAL DATE (as per current policy)</color>" , "<color rgb='FFFFFF'>NEW EXPIRY DATE: 14-03-2014</color>"],
 		    ]  
 
