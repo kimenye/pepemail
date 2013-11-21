@@ -47,7 +47,6 @@ RailsAdmin.config do |config|
 			register_instance_option :controller do
 				Proc.new do
 					if params.has_key?(:submit)
-						binding.pry
 						renewal = Renewal.find_by_id(params[:id])
 						RenewalService.send_renewal renewal
 						redirect_to back_or_index, notice: "Email and SMS sent"
