@@ -26,12 +26,12 @@
             %li
               %a.sign-up{:href => '#'}
                 Sign-up          
-            %li.divider          
-              %li
-                - if !user_signed_in?
-                  %a.log-in{:href => new_user_session_path}
-                    Log-in
-                - else
-                  = link_to "Sign out", destroy_user_session_path, :method => :delete
-                  -#%a.log-out{:href => destroy_user_session_path, :method => :delete}
-                    Log-out
+          %li.divider          
+            %li
+              - if !user_signed_in?
+                %a.log-in{:href => new_user_session_path}
+                  Log-in
+              - else
+                = link_to "Sign out", destroy_user_session_path, :method => :delete
+                -#%a.log-out{:href => destroy_user_session_path, :method => :delete}
+                  Log-out
