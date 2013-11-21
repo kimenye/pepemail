@@ -7,7 +7,7 @@ Requires
 ------------------------
 Ruby 1.9.3
 
-Installation:
+Installation
 ------------------------
 1. Clone the repo
 2. Install bundler if it is not already installed. `gem install bundler`

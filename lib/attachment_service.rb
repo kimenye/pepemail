@@ -19,12 +19,12 @@ class AttachmentService
 		        ], :align => :right, :size => 9
 		    end
 
-	        pdf.pad(8) { pdf.text DateTime.now.strftime("%d %b %Y"), :size => 9 }  
+	        pdf.pad(8) { pdf.text Time.now.strftime("#{Time.now.day.ordinalize} %b %Y"), :size => 9 }  
 		    pdf.text "#{renewal.first_name} #{renewal.last_name}", :size => 9  
     		pdf.text "P.O Box 30589", :size => 9
     		pdf.text "NAIROBI", :size => 9
 
-    		pdf.pad(6) { pdf.text "Dear #{renewal.first_name} #{renewal.last_name},", :size => 9 }
+    		pdf.pad(6) { pdf.text "Dear  #{renewal.first_name} #{renewal.last_name},", :size => 9 }
 		    pdf.pad(6) { pdf.formatted_text [{ :text => "RE: 2012 MOTOR INSURANCE RENEWAL- 14-03-2013", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
 
 		    pdf.text "We write to invite renewal of your vehicle detailed below: ", :size => 9 
