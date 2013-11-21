@@ -31,13 +31,38 @@ RailsAdmin.config do |config|
 			end
 		end
 
+		member :send_renewal do
+			register_instance_option :visible? do
+				bindings[:abstract_model].to_s == "Renewal"
+			end
+
+			register_instance_option :link_icon do
+				'icon-envelope-alt'
+			end
+
+			register_instance_option :http_methods do
+				[:get, :post]
+			end
+
+			register_instance_option :controller do
+				Proc.new do
+					if params.has_key?(:submit)
+						renewal = Renewal.find_by_id(params[:id])
+						RenewalService.send_renewal renewal
+						redirect_to back_or_index, notice: "Email and SMS sent"
+					else
+						render "send_renewal"
+					end
+				end
+			end				
+		end
+
 		collection :upload_renewals do
 			register_instance_option :link_icon do
 				'icon-upload'
 			end
 
 			register_instance_option :visible? do
-				# binding.pry
 				bindings[:abstract_model].to_s == "Renewal"
 			end
 
