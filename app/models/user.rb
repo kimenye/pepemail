@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :items, :renewals, dependent: :destroy
+  has_many :items
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
