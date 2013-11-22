@@ -6,6 +6,7 @@ RailsAdmin.config do |config|
     	show
     	edit
     	delete
+    	bulk_delete
 
 		collection :send_renewals do
 			register_instance_option :link_icon do
