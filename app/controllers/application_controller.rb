@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
   #end
 
   def after_sign_in_path_for(resource)
-    @user = User.find(resource.id)
-    user_path(@user)
+    # @user = User.find(resource.id)
+    # user_path(@user)
+    rails_admin_path
   end
 
 end
