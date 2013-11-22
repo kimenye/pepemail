@@ -1,4 +1,7 @@
 RailsAdmin.config do |config|
+	config.excluded_models << Item
+	config.excluded_models << Photo
+	config.excluded_models << Campaign
 	config.actions do
 		dashboard
 		index
