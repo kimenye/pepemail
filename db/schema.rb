@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20131122115536) do
     t.decimal  "discount"
     t.integer  "target"
     t.string   "campaign_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "background_color"
     t.string   "secondary_color"
     t.string   "hero_file_name"
@@ -38,12 +38,22 @@ ActiveRecord::Schema.define(version: 20131122115536) do
 
   add_index "campaigns", ["item_id"], name: "index_campaigns_on_item_id"
 
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.boolean  "subscribe"
+  end
+
   create_table "items", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.decimal  "list_price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "item_type"
     t.integer  "user_id"
   end
@@ -53,8 +63,8 @@ ActiveRecord::Schema.define(version: 20131122115536) do
   create_table "photos", force: true do |t|
     t.integer  "item_id"
     t.string   "caption"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -70,8 +80,8 @@ ActiveRecord::Schema.define(version: 20131122115536) do
     t.string   "table"
     t.integer  "month",      limit: 2
     t.integer  "year",       limit: 5
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
@@ -91,8 +101,8 @@ ActiveRecord::Schema.define(version: 20131122115536) do
     t.decimal  "amount_due"
     t.string   "renewal_type"
     t.decimal  "computation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "user_id"
   end
 
@@ -109,8 +119,8 @@ ActiveRecord::Schema.define(version: 20131122115536) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "company_name"
     t.string   "website"
