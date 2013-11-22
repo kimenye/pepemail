@@ -416,13 +416,17 @@
                       </tr>
                       <tr style="background-color: #eee">
                         <td width="25%"><b style="color: #202020;">Insurance Value:</b></td>
-                        <td width="75%" style="text-align: left;font-size: 14px"><%= @renewal.value %></td>
+                        <td width="75%" style="text-align: left;font-size: 14px"><%= number_to_currency(@renewal.value, :unit => "KES ", :precision => 0, :delimiter => ",") %></td>
                       </tr>
                       <tr>
+                        <td width="25%"><b style="color: #202020;">Premium Due:</b></td>
+                        <td width="75%" style="text-align: left;font-size: 14px"><%= number_to_currency(@renewal.amount_due, :unit => "KES ", :precision => 0, :delimiter => ",") %></td>
+                      </tr>
+                      <tr style="background-color: #eee">
                         <td width="25%"><b style="color: #202020;">Renewal Date:</b></td>
                         <td width="75%" style="text-align: left;font-size: 14px"><%= @renewal.renewal_date.to_s(:simple) %></td>
                       </tr>
-                      <tr style="background-color: #eee">
+                      <tr>
                         <td width="25%"><b style="color: #202020;">New Expiry Date:</b></td>
                         <td width="75%" style="text-align: left;font-size: 14px"><%= @renewal.expiry_date.to_s(:simple) %></td>
                       </tr>
