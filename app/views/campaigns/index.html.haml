@@ -1,0 +1,44 @@
+.row
+  .large-12.columns
+    %h3.subheader
+      %i.primary-icons
+      Campaigns /
+      %small
+        all your campaigns
+      = link_to 'New Campaign', new_campaign_path, :class => "button tiny"
+.row.spacer
+  .large-12.columns
+    %table.datatable
+      %thead
+        %tr
+          %th Start date
+          %th End date
+          %th Tagline
+          %th Description
+          %th Item
+          %th Discount
+          %th Target
+          %th Campaign type
+          -#%th
+          -#%th
+          %th
+      %tbody
+      - @campaigns.each do |campaign|
+        %tr
+          %td= campaign.start_date.to_s(:simple)
+          %td
+            - if !campaign.end_date.nil?
+              = campaign.end_date.to_s(:simple)
+          %td= campaign.tagline
+          %td= campaign.description
+          %td= campaign.item.name
+          %td= campaign.discount
+          %td= campaign.target
+          %td= campaign.campaign_type
+          -#%td= link_to 'Show', campaign
+          %td= link_to 'Edit', edit_campaign_path(campaign), :class => "button small"
+          -#%td= link_to 'Destroy', campaign, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %br
+
+    = link_to 'New Campaign', new_campaign_path

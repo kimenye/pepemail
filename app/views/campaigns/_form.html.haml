@@ -1,0 +1,69 @@
+= form_for @campaign, :class => "custom" do |f|
+  .row.fields
+    .large-3.columns.sidebar
+      %h4.subheader
+        Campaign details
+      %p
+        Enter the details of your campaign
+
+      %p
+        = link_to "Preview >", campaign_preview_path(@campaign), :class => "button medium"
+    .large-9.columns
+      .row
+        .large-12.columns
+          = f.label :tagline
+          = f.text_field :tagline
+      .row
+        .large-4.columns
+          = f.label :start_date
+          = f.text_field :start_date, :class => "date"
+        .large-4.columns
+          = f.label :end_date
+          = f.text_field :end_date, :class => "date"
+        .large-4.columns
+          %label
+            Target
+            %small
+              \# engagements
+          = f.text_field :target
+      .row
+        .large-12.columns
+          = f.label :description
+          -#= f.text_area :description
+          = f.textile_editor :description
+      .row
+        .large-4.columns
+          %label
+            Discount
+            %small
+              \% off
+          = f.text_field :discount
+        .large-4.columns
+          = f.label :campaign_type
+          = f.select :campaign_type, ["Sale", "Email Campaign"], {}
+        .large-4.columns
+          = f.label :item_id
+          = f.select :item_id, Item.where("user_id = ?", current_user.id).collect { |i| [i.name, i.id] }, {}
+      .row
+        .large-6.columns
+          = f.label :background_color
+          = f.text_field :background_color, :class => "color-picker"
+        .large-6.columns
+          = f.label :secondary_color
+          = f.text_field :secondary_color, :class => "color-picker"
+      .row
+        .large-6.columns
+          = f.label :hero
+          = f.file_field :hero
+        .large-6.columns
+          = f.label :bottom
+          = f.file_field :bottom
+      .row
+        .large-4.offset-6.columns
+          = f.submit "Save", :class => "button small"
+= textile_editor_initialize
+
+:javascript
+  $(function(){
+    $('.color-picker').minicolors();
+  });

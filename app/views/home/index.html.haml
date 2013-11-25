@@ -7,39 +7,7 @@
       %small
         Send simple & Beautiful email. Delight your customers.
     .large-2.columns
-#sign-up-form.small.reveal-modal
-  %a.close-reveal-modal
-    &#215;
+%footer.banner
   .row
-    .join
-      .tagline
-        %small
-          We're still in closed BETA
-      .large-10.large-centered.columns
-        %p#signup-message
-          Keep in touch & we'll let you know when we launch
-      #signupform
-        = form_for(@contact, remote: true) do |f|
-          .large-10.large-centered.columns
-            .field
-              = f.text_field :name, :placeholder => "Your Name", :required => "required"
-          .large-10.large-centered.columns
-            .field
-              = f.email_field :email, :placeholder => "Your Email Address", :required => "required"
-          .large-10.large-centered.columns
-            .field
-              = f.check_box :subscribe
-              = f.label :subscribe, "Subscribe to our newsletter"
-          .large-10.large-centered.columns
-            = f.submit 'Get in touch', :class => "button radius large"
-
-:javascript
-  $(function(){
-    $("form#new_contact").bind("ajax:success",function(event,data,status,xhr){
-      if (status == "success") {
-        var contact = $.parseJSON(data);
-        $('#signupform').hide();
-        $('#signup-message').html("Thank you " + contact.name + " for your interest. We'll let you know when we launch.");
-      }
-    });
-  });
+    .large-12.small-12.large-centered.small-centered.columns
+      %img{:src => "/assets/large_hero.png"}

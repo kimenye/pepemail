@@ -1,0 +1,89 @@
+body {
+  background-color: #fdeecd;
+}
+body.admin {
+  background-color: #ffffff;
+
+  header {
+    //margin-bottom: 40px;
+  }
+}
+
+select {
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  height: 28px;
+}
+
+.spacer {
+  margin-top: 10px;
+}
+
+.contain-to-grid {
+  .top-bar {
+    max-width: 980px;
+    margin: 0 auto;
+
+    .name {
+      h1 {
+        a.help {
+          color: #707070;
+          text-transform: uppercase;
+          font-weight: normal;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .top-bar-section ul li > a {
+      color: #707070;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    %ul {
+      %li {
+        %a {
+          color: #707070;
+        }
+      }
+    }
+  }
+}
+
+.primary-icons {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(/assets/primary_icons.png) no-repeat;
+}
+
+.other-icons {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(/assets/other_icons.png) no-repeat;
+}
+
+.other-icons.profile {
+  background-position: -40px 0px;
+}
+
+.error_box {
+  background:  #FAE1E1;
+  border-bottom: 1px solid #EBBABA;
+  margin-top: -15px;
+  padding: 20px 20px 0px 50px;
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 14px;
+    margin: 0 0 5px;
+    font-weight: normal;
+  }
+
+  li {
+    margin-left: 25px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,5 @@
+#<Contact id: 1, name: "Trevor Kimenye", email: "trevor@sprout.co.ke", confirmation_token: nil, confirmed_at: nil, created_at: "2013-09-11 11:12:21", updated_at: "2013-09-11 11:12:21", subscribe: nil>,
+#<Contact id: 2, name: "Joshua Musau", email: "kalekachali@gmail.com", confirmation_token: nil, confirmed_at: nil, created_at: "2013-09-18 15:35:19", updated_at: "2013-09-18 15:35:19", subscribe: true>,
+#<Contact id: 3, name: "Mercy Mureithi", email: "mureithi@me.com", confirmation_token: nil, confirmed_at: nil, created_at: "2013-09-20 16:52:02", updated_at: "2013-09-20 16:52:02", subscribe: true>,
+#<Contact id: 4, name: "Bi", email: "MumBi.Mungai@gbs.co.ke", confirmation_token: nil, confirmed_at: nil, created_at: "2013-09-27 09:50:01", updated_at: "2013-09-27 09:50:01", subscribe: true>,
+#<Contact id: 5, name: "Ryan Bowman", email: "ryan@circle.co.ke", confirmation_token: nil, confirmed_at: nil, created_at: "2013-10-09 08:06:53", updated_at: "2013-10-09 08:06:53", subscribe: false>

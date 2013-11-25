@@ -1,0 +1,32 @@
+.navbar .brand, .navbar .nav > li > a {
+	text-shadow: none;
+	color: #707070;
+}
+
+.navbar .nav > li > a:hover {
+	color: #ffffff;
+}
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+	box-shadow: none;	
+}
+
+.navbar-inner {
+	background-color: #000000;
+	background-image: none;
+}
+
+li.divider {
+	border-bottom: none;
+	border-top: none;
+	border-right: solid 1px #2b2b2b;
+	border-left: solid 1px black;
+	clear: none;
+	height: 45px;
+	width: 0; 
+}
+
+.root_links a {
+	text-transform: uppercase;
+}
+

@@ -1,0 +1,372 @@
+<!--
+ * This is the styles for your form. Please copy this part into the <head></head> part of your website.
+ * The styles are prefixed so to not clash with your site and referenced to the container <div /> at all
+ * at all times.
+ *
+ * @type      : CSS
+ * @version   : 1.0
+ * @date      : 16 Sep 2013 - 16:00 * @formTitle : Untitled form * @support   : support@everlytic
+ *
+ -->
+<style type="text/css">
+div.el-content-wrapper
+{
+    font-size: 12px;
+    font-family: Arial, Helvetica, Tahoma, sans-serif;
+    color: #595959;
+}
+div.el-content-wrapper input[type="text"], textarea
+{
+    min-width: 278px !important;
+    padding: 3px;
+}
+div.el-content-wrapper input, textarea, select
+{
+    border: 1px solid #C2C2C2;
+    font-size: 12px;
+    font-family: Arial, Helvetica, Tahoma, sans-serif;
+    color: #595959;
+}
+div.el-content-wrapper select
+{
+    padding: 2px;
+}
+div.el-content-wrapper input[type="text"]
+{
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border: 1px solid #e0e0e0;
+    background-color: #fbfbfb;
+    padding: 4px 3px 3px 7px;
+    height: 27px;
+    -moz-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+div.el-content-wrapper select
+{
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border: 1px solid #e0e0e0;
+    height: 27px;
+    background-color:#fbfbfb;
+    padding: 4px 3px 3px 7px;
+    -moz-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+div.el-content-wrapper textarea
+{
+    font-family: "courier new";
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border: 1px solid #e0e0e0;
+    background-color: #fbfbfb;
+    padding: 4px 3px 3px 7px;
+    -moz-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+div.el-content-wrapper label
+{
+    color: #595959;
+    font-size: 14px;
+    font-weight: normal;
+    margin-right: 15px;
+}
+div.el-content-wrapper label.radio
+{
+    margin-right: 5px;
+}
+div.el-content-wrapper input:-moz-placeholder
+{
+    font-family: Arial, Helvetica, Tahoma, sans-serif;
+    color: #BBBBBB;
+    font-style: italic;
+}
+div.el-content-wrapper input::-webkit-input-placeholder
+{
+    font-family: Arial, Helvetica, Tahoma, sans-serif;
+    color: #BBBBBB;
+    font-style: italic;
+}
+div.el-content-wrapper input[type="radio"]
+{
+    margin-right: 2px;
+}
+div.el-content-wrapper input[type="checkbox"], input[type="radio"]
+{
+    border: none;
+    padding: 0;
+    min-width: inherit;
+}
+div.el-content-wrapper input[required], textarea[required]
+{
+    min-width: 251px;
+    padding-right: 16px;
+    background: #FFFFFF url(http://send.pepemail.co.ke/images/icons/asterisk-small-yellow.png) no-repeat center right;
+}
+div.el-content-wrapper input.input-number
+{
+    min-width: 70px;
+    width: 70px;
+}
+div.el-content-wrapper textarea[required]
+{
+    background-position: top right;
+}
+div.el-content-wrapper input.public_button
+{
+    margin-right: 8px;
+    color: #333333 !important;
+    padding: 4px 5px 4px 5px;
+    border: 1px solid #CCCCCC;
+    background: #F2F2F2 url(http://send.pepemail.co.ke/images/layout/gradient_small.png) repeat-x scroll 0 bottom;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+}
+
+div.el-content-wrapper input.public_button:hover
+{
+    background: #F2F2F2 url(http://send.pepemail.co.ke/images/layout/gradient_small_rev.png) repeat-x scroll 0 top;
+}
+
+div.el-content-wrapper .clear
+{
+    clear: both;
+    line-height: 0;
+    font-size: 0;
+    height: 0px;
+}
+div.el-content-wrapper .nowrap
+{
+    white-space: nowrap;
+}
+div.el-content-wrapper .stretch
+{
+    width: 100% !important;
+}
+    /*Headers*/
+div.el-content-wrapper h1
+{
+    font-size: 24px;
+    padding: 3px 2px;
+    font-weight: 400;
+    margin: 6px 0 20px 0;
+    color: #343434;
+}
+div.el-content-wrapper h2
+{
+    margin-bottom: 5px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 15px;
+}
+div.el-content-wrapper h2 label
+{
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+}
+div.el-content-wrapper h3
+{
+    margin-bottom: 5px;
+    color: #5A5A5A;
+    font-weight: bold;
+    font-size: 13px;
+}
+div.el-content-wrapper h3 label
+{
+    color: #5A5A5A;
+    font-weight: bold;
+    font-size: 13px;
+}
+    /*Content wrappers*/
+div.el-content-wrapper
+{
+    /*Default width*/
+    width: 450px;
+    padding: 10px;
+}
+
+div.el-content
+{
+    /*Default width*/
+    width: 99%;
+}
+    /*Forms*/
+div.el-content-wrapper table.fieldset
+{
+    margin: 0 0 0 4px;
+}
+div.el-content-wrapper table.fieldset td
+{
+    padding: 0 5px 6px 0;
+    vertical-align: top;
+}
+div.el-content-wrapper table.fieldset td label
+{
+    display: inline-block;
+    margin-top: 4px;
+}
+div.el-content-wrapper table.fieldset input[type="checkbox"]
+{
+    margin-top: 4px;
+}
+div.el-content-wrapper table.fieldset.summary td
+{
+    font-size: 12px;
+    padding-top: 4px;
+    color: #777777;
+}
+div.el-content-wrapper table.fieldset.summary td label
+{
+    font-weight: bold;
+    color: #777777;
+    margin-top: 0px;
+    white-space: nowrap;
+}
+div.el-content-wrapper table.fieldset.view td
+{
+    padding-top: 4px;
+}
+div.el-content-wrapper table.fieldset.view td label
+{
+    margin-top: -1px;
+}
+div.el-content-wrapper table.fieldset.view td.checkbox-setting
+{
+    padding-top: 7px;
+    font-size: 12px;
+}
+div.el-content-wrapper span.error
+{
+    position: relative;
+    display: inline-block;
+    padding: 3px;
+    margin: -3px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    background-color: #FFE3E3;
+}
+div.el-content-wrapper span.error input
+{
+    border: 1px solid #FF9999;
+    background-color: #FFFFFF !important;
+}
+div.el-content-wrapper span.error span
+{
+    display: block;
+    margin-top: 1px;
+    text-align: right;
+    color: #FF5858;
+    font-size: 10px;
+    font-style: italic;
+}
+div.el-content-wrapper table.fieldset td.submit
+{
+    text-align: left;
+}
+div.el-content-wrapper div.field-heading.top
+{
+    margin-bottom: 7px;
+}
+div.el-content-wrapper div.field-heading.bottom
+{
+    margin-bottom: 7px;
+}
+div.el-content-wrapper div.field-heading.bottom>label
+{
+    font-size: 12px !important;
+    margin-left: 2px;
+}
+div.el-powered-by
+{
+    font-size: 11px;
+    font-family: Arial, Helvetica, Tahoma, sans-serif;
+    color: #595959;
+}
+
+.el-powered-by a
+{
+    color: #595959;
+    text-decoration: none;
+}
+
+.el-powered-by a:hover
+{
+    text-decoration: underline;
+}
+
+div.el-content-wrapper {
+    background-color: #ffffff !important;
+}
+div.el-content-wrapper {
+    border: 1px solid #ffffff !important;
+}
+div.el-content-wrapper h1, label {
+    color: #555555 !important;
+}
+div.el-content-wrapper input, select, textarea {
+    background-color: #ffffff !important;
+}
+div.el-content-wrapper input, select, textarea {
+    border: 1px solid #c2c2c2 !important;
+}
+input:-moz-placeholder {color: #222222 !important;} input::-webkit-input-placeholder {color: #222222 !important;}</style>
+
+
+<!--
+ * This is the javascript for your form. Please copy this part into the <head></head> part of your website.
+ * The javascript generates the validation for your fields so you don't have to.
+ *
+ * @type      : Javascipt
+ * @version   : 1.0
+ * @date      : 16 Sep 2013 - 16:00 * @formTitle : Untitled form * @support   : support@everlytic.com
+ *
+ -->
+<script type="text/javascript">
+</script>
+
+
+<div id="el-content-wrapper" class="el-content-wrapper">
+    <div id="el-content" class="el-content">
+        <form action="http://send.pepemail.co.ke/public/contacts/subscription" method="post" id="item-form" name="item-form"><input type="hidden" name="op" value="subscribe" id="op">
+            <table class="fieldset" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="stretch">
+                        <div class="field-heading top"><label for="contact_name">Name</label></div>
+                        <div class="clear"></div>
+                        <input id="contact_name" placeholder="Type your name" type="text" size="40" name="contact_name" value=""></td>
+                </tr>
+                <tr>
+                    <td class="stretch">
+                        <div class="field-heading top"><label for="contact_email">Email</label></div>
+                        <div class="clear"></div>
+                        <input id="contact_email" placeholder="example@domain.com" required="required" type="text" size="40" name="contact_email" value=""></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="stretch submit"><input type="submit" value="Submit" class="public_button"></td>
+                </tr>
+            </table>
+            <input type="hidden" name="form_hash" value="PkyZrfVj9BE68Xgz" id="form_hash"><input type="hidden" name="list_id[]" value="70929" id="list_id[]"></form>
+    </div>
+    <div class="el-powered-by" style="margin: 3px 0 0; text-align: right; font-size: 11px;"><a href="http://pepemail.co.ke/" target="_parent">Powered by PepeMail</a></div>
+    <div class="clear"></div>
+</div>

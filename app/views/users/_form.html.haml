@@ -1,0 +1,47 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    .row
+      .large-12.columns
+        .error_box
+          %h2
+            = "There was #{pluralize(@user.errors.count, "error")} with this:"
+          %ul
+            - @user.errors.full_messages.each do |msg|
+              %li= msg
+  .row
+    .large-3.columns.sidebar
+      %h4.subheader
+        Profile details
+      %p
+        Fill in your profile details, contact details and social media accounts
+    .large-9.columns
+      .row
+        .large-12.columns
+          = f.label :company_name
+          = f.text_field :company_name
+      .row
+        .large-6.columns
+          = f.label :website
+          = f.text_field :website
+        .large-6.columns
+          = f.label :email_address
+          = f.email_field :email_address
+      .row
+        .large-4.columns
+          = f.label :phone_number
+          = f.text_field :phone_number
+        .large-4.columns
+          = f.label :alternate_phone_number
+          = f.text_field :alternate_phone_number
+        .large-4.columns
+      .row
+        .large-6.columns
+          = f.label :twitter_handle
+          = f.text_field :twitter_handle
+        .large-6.columns
+          = f.label :facebook_page
+          = f.text_field :facebook_page
+  .row
+    .large-3.columns.sidebar
+    .large-9.columns
+      = f.submit 'Save', :class => "button small"

@@ -1,0 +1,12 @@
+.login
+  .subscribe
+    .subscribe-pitch
+      %h3
+        Sign In
+      %p
+        Sign in to pepe
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      .subscribe-form
+        = f.email_field :email, :autofocus => true, :class=> "subscribe-input", :placeholder => "Email address"
+        = f.password_field :password, :autofocus => true, :class=> "subscribe-input", :placeholder => "Password"
+        %button.subscribe-submit{:type => "submit"} Log in

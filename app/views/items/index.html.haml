@@ -1,0 +1,28 @@
+.row
+  .large-12.columns
+    %h3.subheader
+      %i.primary-icons
+      Items /
+      %small
+        all your items
+      = link_to 'New Item', new_item_path, :class => "button tiny"
+.row.spacer
+  .large-12.columns
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Description
+          %th Item Type
+          %th List price
+          %th{:colspan => 2}
+      %tbody
+        - @items.each do |item|
+          %tr
+            %td= item.name
+            %td= item.description
+            %td= item.item_type
+            %td= item.list_price
+            -#%td= link_to 'Show', item, :class => "button small"
+            %td= link_to 'Edit', edit_item_path(item), :class => "button small"
+            %td= link_to 'Delete', item, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "button small alert"

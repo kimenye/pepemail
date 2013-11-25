@@ -1,0 +1,32 @@
+= content_for :title, @campaign.tagline
+
+- content_for :head do
+  :css
+    body { background-color: #{@campaign.background_color}; }
+    a, h2, h3, h1 { color: #{@campaign.secondary_color}; }
+    .main { background: #ffffff url('#{@campaign.bottom.url}') bottom center no-repeat; }
+.row
+  .large-8.columns.large-centered
+    .social-media-icons
+      .link
+        %i.fi-social-facebook
+        %a{:href => @campaign.item.user.facebook_page}
+          LIKE
+      .link
+        %i.fi-social-twitter
+        %a{:href => ""}
+          TWEET
+      .link
+        %i.fi-share
+        %a{:href => ""}
+          FORWARD
+.row
+  .large-8.columns.large-centered
+    %img.hero{:src => @campaign.hero.url}
+.row
+  .large-8.columns.large-centered
+    .main
+      .row
+        .large-6.columns.cta
+        .large-6.columns.description
+          = raw(@campaign.html_description)

@@ -1,0 +1,30 @@
+.row.spacer
+  .large-3.columns
+  .large-9.columns
+    .row
+      .large-12.columns
+        %h3.subheader
+          Edit Item
+        = render 'form'
+    - if !@item.photos.empty?
+      .row
+        .large-12.columns
+          %h4.subheader
+            Images
+      .row
+        .large-12.columns
+          %ul.large-block-grid-4{"data-clearing" => ""}
+            - @item.photos.each do |photo|
+              %li
+                %a{:href => photo.image.url(:medium)}
+                  = image_tag photo.image.url(:thumb), :class => "th", "data-caption" => photo.caption
+    .row
+      .large-12.columns
+        %h5.subheader
+          Add Images
+      .large-12.columns
+        = form_for([@item, @item.photos.build]) do |f|
+          = f.file_field :image
+          = f.label :caption
+          = f.text_field :caption
+          = f.submit 'Upload', :class => "button small success"

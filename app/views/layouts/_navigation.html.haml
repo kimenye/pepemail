@@ -4,26 +4,34 @@
       %ul.title-area
         %li.name
           %h1
-            %a.help{:href => "mailto:hello@pepemail.co.ke"}
-              .visible-for-small.hide-for-large
-                = t(:help_small)
-              .visible-for-large.hide-for-small.hide-for-medium
-                = t(:help)
-      .signup
-        %a.button.radius.large.register-mobile{"data-reveal-id" => "sign-up-form"}
-          Sign Up
-      -#%section.top-bar-section
+            - if !user_signed_in?
+              %a.help{:href => "/"}              
+                HOME
+            - else
+              %a.help{:href => rails_admin_path}              
+                = current_user.name
+      %section.top-bar-section
         %ul.right
-          -#%li.divider
-          -#%li
-            %a
-              About
-          -#%li.divider
-          -#%li
-            %a
-              Pricing
           %li.divider
           %li
             %a
-              Blog
-          %li.divider
+              %a.help{:href => "http://blog.pepemail.co.ke"}
+                = t(:blog)
+          - if Rails.env == "development"
+            %li.divider
+            %li
+              %a{:href => 'coupons'}
+                Coupons          
+            %li.divider          
+            %li
+              %a.sign-up{:href => '#'}
+                Sign-up          
+          %li.divider          
+            %li
+              - if !user_signed_in?
+                %a.log-in{:href => new_user_session_path}
+                  Log-in
+              - else
+                = link_to "Sign out", destroy_user_session_path, :method => :delete
+                -#%a.log-out{:href => destroy_user_session_path, :method => :delete}
+                  Log-out
