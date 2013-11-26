@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+	config.authorize_with :cancan
 	config.excluded_models << Item
 	config.excluded_models << Photo
 	config.excluded_models << Campaign
@@ -125,12 +126,13 @@ RailsAdmin.config do |config|
 
     					main_sheet = doc.sheets.first
     					count = 0
+    					binding.pry
     					main_sheet.rows[1..main_sheet.rows.length].each do |row|
     						renewal = Renewal.create! :first_name => row[0], :last_name => row[1],
     							:postal_address => row[2], :city => row[3], :ref => row[7], :mobile_number => row[5],
     							:email_address => row[6], :value => row[8], :registration_number => row[9],
     							:renewal_date => row[10], :expiry_date => row[11], :amount_due => row[12], :renewal_type => row[13],
-    							:computation => row[14]
+    							:computation => row[14], :user_id => current_user.id
     						count += 1
     					end
     					redirect_to back_or_index, notice: "#{count} Renewals imported"

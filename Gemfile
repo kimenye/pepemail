@@ -27,6 +27,7 @@ gem 'phony_rails'
 gem 'phony'
 gem 'valid_email'
 gem 'global_phone'
+gem 'cancan'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

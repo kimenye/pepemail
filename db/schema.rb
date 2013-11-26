@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126095324) do
+ActiveRecord::Schema.define(version: 20131126153856) do
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20131126095324) do
     t.string   "twitter_handle"
     t.string   "phone_number"
     t.string   "alternate_phone_number"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
