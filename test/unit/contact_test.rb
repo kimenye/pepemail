@@ -46,4 +46,10 @@ class ContactTest < ActiveSupport::TestCase
 		@contact.email_address = "me@you.com"
 		assert_equal true, @contact.valid?		
 	end
+
+	test "A phone number is valid if it passes the phone validation test" do
+		# 254 722 975216
+		@contact = Contact.new :name => "My Name", :user => @user
+		@contact.phone_number = "254 722 975216"
+	end
 end

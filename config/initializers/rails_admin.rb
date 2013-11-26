@@ -2,6 +2,45 @@ RailsAdmin.config do |config|
 	config.excluded_models << Item
 	config.excluded_models << Photo
 	config.excluded_models << Campaign
+
+	config.model 'Contact' do
+		edit do
+			field :name
+			field :email
+			field :phone_number
+			field :source
+
+			field :user_id, :hidden do
+		    	default_value do
+		        	bindings[:view]._current_user.id
+		      	end
+		    end
+		end
+	end
+
+	config.model 'Renewal' do
+		edit do			
+			field :first_name
+			field :last_name
+			field :postal_address
+			field :city
+			field :mobile_number
+			field :ref
+			field :computation
+			field :registration_number
+			field :amount_due
+			field :expiry_date
+			field :renewal_date
+			field :renewal_type
+			field :value
+			field :user_id, :hidden do
+		    	default_value do
+		        	bindings[:view]._current_user.id
+		      	end
+		    end
+		end
+	end
+
 	config.actions do
 		dashboard
 		index

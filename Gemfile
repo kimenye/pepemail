@@ -24,8 +24,9 @@ gem 'pry'
 gem 'pry-nav'
 gem 'prawn'
 gem 'phony_rails'
-# gem 'email_validator'
+gem 'phony'
 gem 'valid_email'
+gem 'global_phone'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -47,6 +48,7 @@ gem 'simple_xlsx_reader'
 gem 'prawn'
 gem 'httparty'
 gem 'rest-client'
+
 
 
 
