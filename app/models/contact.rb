@@ -4,5 +4,5 @@ class Contact < ActiveRecord::Base
   validates  :email, uniqueness: :true, presence: :true
   validates  :user, presence: :true
   validates  :name, presence: :true
-
+  validates :phone_number, :phony_plausible => true
 end
