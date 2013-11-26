@@ -3,6 +3,6 @@ class Contact < ActiveRecord::Base
   validates  :phone_number, uniqueness: true, presence: :true
   validates  :email, uniqueness: :true, presence: :true
   validates  :user, presence: :true
-  validates  :name, presence: true
+  validates  :name, presence: :true
 
 end
