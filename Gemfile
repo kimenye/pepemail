@@ -24,6 +24,8 @@ gem 'pry'
 gem 'pry-nav'
 gem 'prawn'
 gem 'phony_rails'
+# gem 'email_validator'
+gem 'valid_email'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

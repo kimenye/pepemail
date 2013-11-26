@@ -244,6 +244,9 @@ GEM
     turn (0.9.6)
       ansi
     tzinfo (0.3.38)
+    valid_email (0.0.4)
+      activemodel
+      mail
     warden (1.2.3)
       rack (>= 1.0)
     xpath (2.0.0)
@@ -289,4 +292,5 @@ DEPENDENCIES
   sqlite3
   turbolinks
   turn
+  valid_email
   zurb-foundation
