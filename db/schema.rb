@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125143050) do
+ActiveRecord::Schema.define(version: 20131126095324) do
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20131125143050) do
     t.decimal  "discount"
     t.integer  "target"
     t.string   "campaign_type"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "background_color"
     t.string   "secondary_color"
     t.string   "hero_file_name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20131125143050) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "source"
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
@@ -53,8 +54,8 @@ ActiveRecord::Schema.define(version: 20131125143050) do
     t.string   "name"
     t.text     "description"
     t.decimal  "list_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "item_type"
     t.integer  "user_id"
   end
@@ -64,8 +65,8 @@ ActiveRecord::Schema.define(version: 20131125143050) do
   create_table "photos", force: true do |t|
     t.integer  "item_id"
     t.string   "caption"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -81,8 +82,8 @@ ActiveRecord::Schema.define(version: 20131125143050) do
     t.string   "table"
     t.integer  "month",      limit: 2
     t.integer  "year",       limit: 5
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
@@ -102,8 +103,8 @@ ActiveRecord::Schema.define(version: 20131125143050) do
     t.decimal  "amount_due"
     t.string   "renewal_type"
     t.decimal  "computation"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
   end
 
@@ -120,8 +121,8 @@ ActiveRecord::Schema.define(version: 20131125143050) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
     t.string   "company_name"
     t.string   "website"
