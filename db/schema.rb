@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122115536) do
+ActiveRecord::Schema.define(version: 20131125143050) do
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -40,13 +40,14 @@ ActiveRecord::Schema.define(version: 20131122115536) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
+    t.string   "phone_number"
     t.string   "email"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.boolean  "subscribe"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
   create_table "items", force: true do |t|
     t.string   "name"
