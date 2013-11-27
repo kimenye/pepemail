@@ -132,18 +132,22 @@ RailsAdmin.config do |config|
 						doc = SimpleXlsxReader.open(params[:import_file].tempfile)
 						main_sheet = doc.sheets.first
 						count = 0
+						errors = 0
+						curr_user = User.find(current_user.id)
 						
 						main_sheet.rows[1..main_sheet.rows.length].each do |row|
-							contact = Contact.new :user => User.find(current_user.id), :name => row[0],
-								:email_address => row[2], :source => row[3], :phone_number => PhoneConverter.convert(row[1])
+							contact = Contact.new :user => curr_user, :name => row[0],
+								:email => row[2], :source => row[3], :phone_number => PhoneConverter.convert(row[1])
 
 							if contact.valid?
 								contact.save!
 								count += 1
+							else
+								errors += 1
 							end
 						end
 
-						redirect_to back_or_index, notice: "#{count} Contacts imported"
+						redirect_to back_or_index, notice: "#{count} Contacts imported. #{errors} Contacts skipped."
 					end
 				end
 			end			

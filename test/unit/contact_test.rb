@@ -6,8 +6,8 @@ class ContactTest < ActiveSupport::TestCase
 		@user.save!
 	end
 
-	test "A contact must have at least a name and user" do
-		@contact = Contact.new :name => nil, :email => "me@you.com", :phone_number => "0722866564", :user => @user
+	test "A contact must have a user" do
+		@contact = Contact.new :name => nil, :email => "me@you.com", :phone_number => "0722866564", :user => nil
 		assert_equal false, @contact.valid?
 	end
 
