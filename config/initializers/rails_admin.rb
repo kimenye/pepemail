@@ -1,7 +1,54 @@
 RailsAdmin.config do |config|
+	config.authorize_with :cancan
 	config.excluded_models << Item
 	config.excluded_models << Photo
 	config.excluded_models << Campaign
+
+	config.model 'Contact' do
+		edit do
+			field :name
+			field :email
+			field :phone_number
+			field :source
+
+			field :user_id, :hidden do
+		    	default_value do
+		        	bindings[:view]._current_user.id
+		      	end
+		    end
+		end
+
+		export do
+			field :name
+			field :email
+			field :phone_number
+			field :source
+		end
+	end
+
+	config.model 'Renewal' do
+		edit do			
+			field :first_name
+			field :last_name
+			field :postal_address
+			field :city
+			field :mobile_number
+			field :ref
+			field :computation
+			field :registration_number
+			field :amount_due
+			field :expiry_date
+			field :renewal_date
+			field :renewal_type
+			field :value
+			field :user_id, :hidden do
+		    	default_value do
+		        	bindings[:view]._current_user.id
+		      	end
+		    end
+		end
+	end
+
 	config.actions do
 		dashboard
 		index
@@ -9,6 +56,7 @@ RailsAdmin.config do |config|
     	show
     	edit
     	delete
+    	export
     	bulk_delete
 
 		collection :send_renewals do
@@ -61,6 +109,50 @@ RailsAdmin.config do |config|
 			end				
 		end
 
+		collection :upload_contacts do
+			register_instance_option :link_icon do
+				'icon-upload'
+			end
+
+			register_instance_option :visible? do
+				bindings[:abstract_model].to_s == "Contact"
+			end
+
+			register_instance_option :http_methods do
+				[:get, :post]
+			end
+
+			register_instance_option :pjax? do
+				true
+			end
+
+			register_instance_option :controller do
+				Proc.new do
+					if params.has_key?(:import_file)
+						doc = SimpleXlsxReader.open(params[:import_file].tempfile)
+						main_sheet = doc.sheets.first
+						count = 0
+						errors = 0
+						curr_user = User.find(current_user.id)
+						
+						main_sheet.rows[1..main_sheet.rows.length].each do |row|
+							contact = Contact.new :user => curr_user, :name => row[0],
+								:email => row[2], :source => row[3], :phone_number => PhoneConverter.convert(row[1])
+
+							if contact.valid?
+								contact.save!
+								count += 1
+							else
+								errors += 1
+							end
+						end
+
+						redirect_to back_or_index, notice: "#{count} Contacts imported. #{errors} Contacts skipped."
+					end
+				end
+			end			
+		end
+
 		collection :upload_renewals do
 			register_instance_option :link_icon do
 				'icon-upload'
@@ -91,7 +183,7 @@ RailsAdmin.config do |config|
     							:postal_address => row[2], :city => row[3], :ref => row[7], :mobile_number => row[5],
     							:email_address => row[6], :value => row[8], :registration_number => row[9],
     							:renewal_date => row[10], :expiry_date => row[11], :amount_due => row[12], :renewal_type => row[13],
-    							:computation => row[14]
+    							:computation => row[14], :user_id => current_user.id
     						count += 1
     					end
     					redirect_to back_or_index, notice: "#{count} Renewals imported"

@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  description: MyText
-  item_type: 
-  list_price: 9.99
+  phone_number: MyString
+  email: MyString
 
 two:
   name: MyString
-  description: MyText
-  item_type: 
-  list_price: 9.99
+  phone_number: MyString
+  email: MyString

@@ -23,6 +23,8 @@ gem 'quiet_assets'
 gem 'pry'
 gem 'pry-nav'
 gem 'prawn'
+gem 'valid_email'
+gem 'cancan'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -44,6 +46,7 @@ gem 'simple_xlsx_reader'
 gem 'prawn'
 gem 'httparty'
 gem 'rest-client'
+
 
 
 
@@ -69,6 +72,17 @@ group :production do
   gem 'rails_serve_static_assets'
   gem 'rails_12factor'
 end
+
+# group :test do
+  gem 'minitest'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-colorize'
+  gem 'minitest-focus'
+  gem 'minitest-spec-rails'
+  gem 'capybara_minitest_spec'
+  gem 'turn'
+# end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
