@@ -39,7 +39,7 @@ class ContactTest < ActiveSupport::TestCase
 		assert_equal true, @contact.valid?		
 
 		@contact.phone_number = nil
-		@contact.email = "me@you.com"
+		@contact.email = "me@you.com" 
 		assert_equal true, @contact.valid?		
 
 		@contact.phone_number = "0722866564"
