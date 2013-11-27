@@ -50,4 +50,8 @@ class PhoneConverterTest < ActiveSupport::TestCase
 		assert_equal false, PhoneConverter.is_valid?(number)		
 	end
 
+	test "Don't run normalize when number is nil" do
+		assert_equal nil, PhoneConverter.normalize(nil)
+	end
+
 end
