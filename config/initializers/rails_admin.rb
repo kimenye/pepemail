@@ -133,18 +133,17 @@ RailsAdmin.config do |config|
 						main_sheet = doc.sheets.first
 						count = 0
 						errors = 0
+						curr_user = User.find(current_user.id)
 						
 						main_sheet.rows[1..main_sheet.rows.length].each do |row|
-							contact = Contact.new :user => User.find(current_user.id), :name => row[0],
+							contact = Contact.new :user => curr_user, :name => row[0],
 								:email => row[2], :source => row[3], :phone_number => PhoneConverter.convert(row[1])
 
 							if contact.valid?
 								contact.save!
 								count += 1
 							else
-								# errors += 1
-								# if contact.has_email?
-								# binding.pry
+								errors += 1
 							end
 						end
 
