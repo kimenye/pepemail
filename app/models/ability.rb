@@ -36,6 +36,7 @@ class Ability
         can :manage, :all
     else
         can :read, Contact, :user_id => user.id
+        can :edit, Contact, :user_id => user.id
         can :new, Contact
         can :export, Contact, :user_id => user.id
         can :show, Contact, :user_id => user.id
@@ -43,6 +44,9 @@ class Ability
         can :bulk_delete, Contact
         can :export, Contact, :user_id =>  user.id
         can :destroy, Contact
+        
+        can :read, User, :id => user.id
+        can :edit, User, :id => user.id
         
 
         can :read, Renewal, :user_id => user.id
