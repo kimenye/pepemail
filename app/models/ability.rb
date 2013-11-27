@@ -39,7 +39,9 @@ class Ability
         can :new, Contact
         can :export, Contact, :user_id => user.id
         can :show, Contact, :user_id => user.id
+        can :upload_contacts, Contact
         can :bulk_delete, Contact
+        can :export, Contact, :user_id =>  user.id
         can :destroy, Contact
         
 
@@ -49,6 +51,7 @@ class Ability
         can :show, Renewal, :user_id => user.id    
         can :send_renewals, Renewal
         can :upload_renewals, Renewal
+        can :eport, Renewal, :user_id => user.id
         can :destroy, Renewal
         can :history, Renewal    
     end    

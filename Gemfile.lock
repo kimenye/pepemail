@@ -61,9 +61,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    countries (0.9.3)
-      currencies (~> 0.4.2)
-    currencies (0.4.2)
     date_validator (0.7.0)
       activemodel (>= 3)
     debug_inspector (0.0.2)
@@ -145,11 +142,6 @@ GEM
       ruby-rc4
       ttfunk
     pg (0.17.0)
-    phony (1.9.0)
-    phony_rails (0.4.2)
-      activesupport (>= 3.0)
-      countries (>= 0.8.2)
-      phony (>= 1.7.7)
     polyglot (0.3.3)
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
@@ -278,8 +270,6 @@ DEPENDENCIES
   minitest-spec-rails
   paperclip
   pg
-  phony
-  phony_rails
   prawn
   pry
   pry-nav

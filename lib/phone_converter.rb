@@ -7,6 +7,15 @@ class PhoneConverter
 		!normalized.nil? && normalized.length == 12 && normalized.start_with?("2547")
 	end
 
+	def self.convert number
+		if PhoneConverter.is_valid?(number)
+			return PhoneConverter.normalize(number)
+		else
+			return nil
+		end
+	end
+
+
 	def self.normalize number
 		number = number.wstrip
 		if number.start_with?("07")

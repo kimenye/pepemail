@@ -23,8 +23,6 @@ gem 'quiet_assets'
 gem 'pry'
 gem 'pry-nav'
 gem 'prawn'
-gem 'phony_rails'
-gem 'phony'
 gem 'valid_email'
 gem 'cancan'
 

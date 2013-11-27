@@ -32,4 +32,22 @@ class PhoneConverterTest < ActiveSupport::TestCase
 		number = "02072232233"
 		assert_equal false, PhoneConverter.is_valid?(number)
 	end
+
+	test "Only a valid phone number is converted by the converter" do
+		number = "+254 722 866 564"
+		assert_equal true, PhoneConverter.is_valid?(number)
+		assert_equal PhoneConverter.normalize(number), PhoneConverter.convert(number)		
+
+		number = "993322"
+		assert_equal nil, PhoneConverter.convert(number)
+	end
+
+	test "A phone number may not contain any non numeric characters except a leading +" do
+		number = "+254 722 866 564"
+		assert_equal true, PhoneConverter.is_valid?(number)
+
+		number = "+254 722 xxx xxx"
+		assert_equal false, PhoneConverter.is_valid?(number)		
+	end
+
 end

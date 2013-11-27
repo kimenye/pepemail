@@ -17,6 +17,13 @@ RailsAdmin.config do |config|
 		      	end
 		    end
 		end
+
+		export do
+			field :name
+			field :email
+			field :phone_number
+			field :source
+		end
 	end
 
 	config.model 'Renewal' do
@@ -49,6 +56,7 @@ RailsAdmin.config do |config|
     	show
     	edit
     	delete
+    	export
     	bulk_delete
 
 		collection :send_renewals do
@@ -101,6 +109,46 @@ RailsAdmin.config do |config|
 			end				
 		end
 
+		collection :upload_contacts do
+			register_instance_option :link_icon do
+				'icon-upload'
+			end
+
+			register_instance_option :visible? do
+				bindings[:abstract_model].to_s == "Contact"
+			end
+
+			register_instance_option :http_methods do
+				[:get, :post]
+			end
+
+			register_instance_option :pjax? do
+				true
+			end
+
+			register_instance_option :controller do
+				Proc.new do
+					if params.has_key?(:import_file)
+						doc = SimpleXlsxReader.open(params[:import_file].tempfile)
+						main_sheet = doc.sheets.first
+						count = 0
+						
+						main_sheet.rows[1..main_sheet.rows.length].each do |row|
+							contact = Contact.new :user => User.find(current_user.id), :name => row[0],
+								:email_address => row[2], :source => row[3], :phone_number => PhoneConverter.convert(row[1])
+
+							if contact.valid?
+								contact.save!
+								count += 1
+							end
+						end
+
+						redirect_to back_or_index, notice: "#{count} Contacts imported"
+					end
+				end
+			end			
+		end
+
 		collection :upload_renewals do
 			register_instance_option :link_icon do
 				'icon-upload'
@@ -126,7 +174,6 @@ RailsAdmin.config do |config|
 
     					main_sheet = doc.sheets.first
     					count = 0
-    					binding.pry
     					main_sheet.rows[1..main_sheet.rows.length].each do |row|
     						renewal = Renewal.create! :first_name => row[0], :last_name => row[1],
     							:postal_address => row[2], :city => row[3], :ref => row[7], :mobile_number => row[5],

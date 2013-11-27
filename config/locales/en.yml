@@ -20,6 +20,10 @@ en:
         menu: Import Renewals
         title: Import Renewals
         breadcrumb: Import Renewals
+      upload_contacts:
+        menu: Import Contacts
+        title: Import Contacts
+        breadcrumb: Import Contacts
       send_renewals:
         menu: Send Reminders
         title: Send Renewals
