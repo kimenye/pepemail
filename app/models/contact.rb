@@ -3,7 +3,7 @@ class Contact < ActiveRecord::Base
   belongs_to :user
   validates  :user, presence: :true
   validates  :phone_number, uniqueness: :true  
-  validates  :email, email: :true, uniqueness: :true, if: :has_email?
+  validates  :email, email: :true, uniqueness: { case_sensitive: false }, if: :has_email?
   validate   :has_either_email_or_phone_number? 
   validate   :has_valid_phone_number?, if: :has_phone_number?
 
