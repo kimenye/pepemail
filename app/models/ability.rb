@@ -54,6 +54,7 @@ class Ability
         can :export, Renewal, :user_id => user.id
         can :show, Renewal, :user_id => user.id    
         can :send_renewals, Renewal
+        can :send_renewal, Renewal
         can :upload_renewals, Renewal
         can :eport, Renewal, :user_id => user.id
         can :destroy, Renewal
