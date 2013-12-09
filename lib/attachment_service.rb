@@ -101,7 +101,7 @@ class AttachmentService
 			pdf.image "#{Rails.root}/app/assets/images/korient.png", :scale => 0.7, :vposition => 0, :position => :left
 			pdf.bounding_box([290, pdf.cursor+60], :width => 275) do
 		      # pdf.stroke_bounds
-		      pdf.move_down 3  
+		      pdf.text " ", :size => 9
 		      pdf.text "Kenya Orient Insurance Limited", :align => :right, :size => 9, :vposition => 9
 		      pdf.text "Capitol Hill Towers", :align => :right, :size => 9
 		      
@@ -115,13 +115,14 @@ class AttachmentService
 		        ], :align => :right, :size => 7
 		    end
 
+            pdf.text " ", :size => 9
 	        pdf.pad(8) { pdf.text Time.now.strftime("#{Time.now.day.ordinalize} %b %Y"), :size => 9 }  
 		    pdf.text "#{renewal.first_name} #{renewal.last_name}", :size => 9  
     		pdf.text "P.O Box 30589", :size => 9
     		pdf.text "NAIROBI", :size => 9
 
     		pdf.pad(6) { pdf.text "Dear  customer,", :size => 9 }
-		    pdf.pad(6) { pdf.formatted_text [{ :text => "RE: #{renewal.expiry_date.year} MOTOR INSURANCE RENEWAL- #{renewal.renewal_date.strftime("%d %b %Y")}", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
+		    pdf.pad(6) { pdf.formatted_text [{ :text => "RE: #{renewal.expiry_date.year} #{renewal.product_type.upcase}- #{renewal.renewal_date.strftime("%d %b %Y")}", :size => 10, :styles => [:bold, :underline], :lead => 5}] }
 
 		    pdf.text "We write to invite renewal of your vehicle detailed below: ", :size => 9 
 		    pdf.move_down 3  

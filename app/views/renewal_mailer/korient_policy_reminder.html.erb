@@ -392,8 +392,8 @@
                             margin-right:0;
                             margin-bottom:10px;
                             margin-left:0;
-                            text-align:left;"><%= @renewal.renewal_year %> MOTOR INSURANCE RENEWAL</h1>                    
-                    We write to invite renewal of your vehicle insurance detailed below:
+                            text-align:left;"><%= @renewal.renewal_year %> <%= @renewal.product_type.upcase %></h1>                    
+                    We write to invite renewal of your <%= @renewal.product_type %> insurance detailed below:
                   </td>
                 </tr>
                 <tr>
@@ -456,7 +456,8 @@ applicable pro rata premium. Your new renewal date is as indicated above.
 </li>
                         </ul>
                         <p>
-                            Kindly avail copies of your National ID, vehicle logbook and PIN certificate at renewal.
+                            To renew send an SMS with the word Mobile to 70707. <br />
+                            You will receive an SMS with a link to the Orient Mobile website. Click on this link to continue with the sign-up process.
                         </p>
                     </td>
                 </tr>

@@ -8,8 +8,8 @@ class RenewalService
 		count
 	end
 
-	def self.send_renewal renewal
+	def self.send_renewal renewal, user
 		SmsService.notify_customer renewal
-		RenewalMailer.policy_reminder(renewal).deliver
+		RenewalMailer.policy_reminder(renewal, user).deliver
 	end
 end

@@ -30,9 +30,10 @@ RailsAdmin.config do |config|
 		edit do			
 			field :first_name
 			field :last_name
+		    field :mobile_number
+		    field :email_address
 			field :postal_address
 			field :city
-			field :mobile_number
 			field :ref
 			field :computation
 			field :registration_number
@@ -40,6 +41,7 @@ RailsAdmin.config do |config|
 			field :expiry_date
 			field :renewal_date
 			field :renewal_type
+			field :product_type
 			field :value
 			field :user_id, :hidden do
 		    	default_value do
@@ -100,7 +102,8 @@ RailsAdmin.config do |config|
 				Proc.new do
 					if params.has_key?(:submit)
 						renewal = Renewal.find_by_id(params[:id])
-						RenewalService.send_renewal renewal
+						user    = User.find(current_user.id)
+						RenewalService.send_renewal renewal, user
 						redirect_to back_or_index, notice: "Email and SMS sent"
 					else
 						render "send_renewal"
