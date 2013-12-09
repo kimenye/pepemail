@@ -78,3 +78,6 @@ pickle-email-*.html
 
 #Used by chruby
 .ruby-version
+
+# Linux generated files
+.directory
