@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126153856) do
+ActiveRecord::Schema.define(version: 20131209120836) do
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20131126153856) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "product_type"
   end
 
   add_index "renewals", ["user_id"], name: "index_renewals_on_user_id"
