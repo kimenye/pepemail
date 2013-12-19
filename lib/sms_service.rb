@@ -13,7 +13,7 @@ class SmsService
 		RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
 		text = URI::encode(message)
 		res = RestClient.get("#{ENV['SMS_GATEWAY']}&to=#{number}&text=#{text}")
-		Rails.logger.info "Request #{ENV['SMS_GATEWAY']}&to=+254#{renewal.mobile_number}&text=#{text}"
+		Rails.logger.info "Request #{ENV['SMS_GATEWAY']}&to=+254#{number}&text=#{text}"
 		Rails.logger.info res
 		!res.match(/sent/).nil?
 	end
