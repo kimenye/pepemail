@@ -1,0 +1,22 @@
+.row
+	.large-3.columns
+		%img{:src => "/assets/synqlogo.png"}
+	.large-9.columns
+.row.spacer
+	.large-6.columns.large-centered
+		%h6.subheader
+			SEND A TEST MESSAGE
+		%p
+			= notice
+		%form{:method => "POST", :action => "/synq"}
+			.row
+				.large-12.columns
+					%label{:for => "phone_number"}
+						Phone Number
+					%input{:type => "text", :name => "phone_number", :placeholder => "254722200200"}
+				.large-12.columns
+					%label{:for => "text"}
+						Message
+					%input{:type => "text", :name => "message", :placeholder => "Hello World!"}
+					%input{:type => "hidden", :name =>"authenticity_token", :value => form_authenticity_token}
+			%input.button{:type => "submit", :value => "Send Now"}

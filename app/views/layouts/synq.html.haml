@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title
+        SynqAfrica
+	  
+      %meta{:content => "6xBjgG1s-3KQtC3aly2QxuW6G7DYdxQ4S6dUhY0Onvs", :name => "google-site-verification"}
+      %meta{:content => content_for?(:description) ? yield(:description) : t(:description), :name => "description"}
+      %meta{:content => content_for?(:keywords) ? yield(:keywords) : t(:keywords), :name => "keywords"}
+        = stylesheet_link_tag "application", :media => "all"
+        = stylesheet_link_tag  :href => "http://fonts.googleapis.com/css?family=Varela"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+        = yield(:head)
+      = csrf_meta_tags
+  %body{:class => "#{controller_name} #{action_name}"}
+    #container.container
+      %header
+      #main{:role => "main"}
+        = yield
+
+    / ! end of #container

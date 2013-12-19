@@ -6,7 +6,7 @@ Pepemail::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   get "public/show"
 
-  resources :campaigns
+  resources :campaigns, :synq
 
   root :to => "home#index"
   get 'coupons' => 'home#coupons'  
