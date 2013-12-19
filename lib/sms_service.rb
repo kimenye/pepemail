@@ -12,7 +12,8 @@ class SmsService
 	def self.send_text number, message
 		RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
 		text = URI::encode(message)
-		res = RestClient.get("#{ENV['SMS_GATEWAY']}&to=#{number}&text=#{text}")
+		url = "http://197.248.2.82/receiver/21?from=INFO&coding=1&login=minetaon&pass=kjdg4782klj"
+		res = RestClient.get("#{url}&to=#{number}&text=#{text}")
 		Rails.logger.info "Request #{ENV['SMS_GATEWAY']}&to=+254#{number}&text=#{text}"
 		Rails.logger.info res
 		!res.match(/sent/).nil?
