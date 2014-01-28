@@ -3,6 +3,7 @@ RailsAdmin.config do |config|
 	config.excluded_models << Item
 	config.excluded_models << Photo
 	config.excluded_models << Campaign
+	# config.excluded_models << Visit
 
 	config.model 'Contact' do
 		edit do
@@ -23,6 +24,23 @@ RailsAdmin.config do |config|
 			field :email
 			field :phone_number
 			field :source
+		end
+	end
+
+	config.model 'Url' do
+		edit do
+			field :title
+			field :from
+			field :to
+			field :message
+			field :num_clicks
+			field :success_url
+			field :expired_url
+			field :user_id, :hidden do
+				default_value do
+					binding[:view]._current_user.id
+				end
+			end
 		end
 	end
 
@@ -107,6 +125,35 @@ RailsAdmin.config do |config|
 					end
 				end
 			end				
+		end
+
+		member :send_link do
+			register_instance_option :visible?  do
+				bindings[:abstract_model].to_s == "Url"
+			end
+			
+			register_instance_option :link_icon do
+				'icon-share-alt'
+			end
+
+			register_instance_option :http_methods do
+				[:get, :post]
+			end
+
+			register_instance_option :controller do
+				Proc.new do
+					if params.has_key?(:submit)
+						url = Url.find_by_id(params[:id])
+						contacts = Contact.where(user_id: current_user.id).to_a
+						contacts.each do |contact|
+							SmsService.send_link contact, url
+						end
+						redirect_to back_or_index, notice: "Link sent to #{contacts.count} contacts"
+					else
+						render "send_link"
+					end
+				end
+			end
 		end
 
 		collection :upload_contacts do

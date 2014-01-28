@@ -57,7 +57,19 @@ class Ability
         can :upload_renewals, Renewal
         can :eport, Renewal, :user_id => user.id
         can :destroy, Renewal
-        can :history, Renewal    
+        can :history, Renewal  
+
+
+
+        can :read, Url, :user_id => user.id
+        can :edit, Url, :user_id => user.id
+        can :new, Url  
+        can :export, Url, :user_id => user.id
+        can :show, Url, :user_id => user.id    
+        can :eport, Url, :user_id => user.id
+        can :destroy, Url
+        can :history, Url 
+
     end    
   end
 end

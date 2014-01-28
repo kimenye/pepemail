@@ -32,3 +32,7 @@ en:
         menu: Send Reminder
         title: Send Renewal
         breadcrumb: Send Renewal
+      send_link:
+        menu: Send Link
+        title: Send Link
+        breadcrumb: Send Link
