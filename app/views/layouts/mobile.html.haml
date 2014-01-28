@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %title= content_for?(:title) ? yield(:title) : t(:title)
+    = stylesheet_link_tag  :href => "http://fonts.googleapis.com/css?family=Varela"
+    = stylesheet_link_tag "application", :media => "all"
+  %body{:class => "#{controller_name} #{action_name}"}
+    #container.container
+      #main{:role => "main"}
+        .row
+          .small-8.columns.small-centered
+            %img.logo{:src => "/assets/logo.png"}
+        = yield

@@ -1,0 +1,16 @@
+- content_for :title do
+	= @visit.url.title
+
+
+- if @visit.is_expired?
+	.row
+		.small-10.columns.small-centered
+			.counter
+				%h3.subheader
+					= "Sorry, you've already had #{@visit.counter} visits so far"
+- else
+	.row
+		.small-10.columns.small-centered
+			.counter
+				%h3.subheader
+					Welcome #{@visit.contact.name}. Thank you for checking out our link.
