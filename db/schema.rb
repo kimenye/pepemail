@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126153856) do
+ActiveRecord::Schema.define(version: 20140128155932) do
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -62,6 +62,18 @@ ActiveRecord::Schema.define(version: 20131126153856) do
 
   add_index "items", ["user_id"], name: "index_items_on_user_id"
 
+  create_table "messages", force: true do |t|
+    t.integer  "contact_id"
+    t.text     "text"
+    t.integer  "photo_id"
+    t.string   "message_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["contact_id"], name: "index_messages_on_contact_id"
+  add_index "messages", ["photo_id"], name: "index_messages_on_photo_id"
+
   create_table "photos", force: true do |t|
     t.integer  "item_id"
     t.string   "caption"
@@ -106,9 +118,22 @@ ActiveRecord::Schema.define(version: 20131126153856) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "user_id"
+    t.string   "product_type"
   end
 
   add_index "renewals", ["user_id"], name: "index_renewals_on_user_id"
+
+  create_table "urls", force: true do |t|
+    t.string   "title"
+    t.datetime "from"
+    t.datetime "to"
+    t.string   "message"
+    t.integer  "num_clicks"
+    t.string   "success_url"
+    t.string   "expired_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

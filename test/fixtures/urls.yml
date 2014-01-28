@@ -1,0 +1,20 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  from: 2014-01-28 18:59:32
+  to: 2014-01-28 18:59:32
+  message: MyString
+  num_clicks: 1
+  success_url: MyString
+  expired_url: MyString
+
+two:
+  title: MyString
+  from: 2014-01-28 18:59:32
+  to: 2014-01-28 18:59:32
+  message: MyString
+  num_clicks: 1
+  success_url: MyString
+  expired_url: MyString
