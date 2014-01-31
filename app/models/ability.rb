@@ -66,7 +66,8 @@ class Ability
         can :export, Url, :user_id => user.id
         can :show, Url, :user_id => user.id    
         can :destroy, Url
-        can :history, Url 
+        can :history, Url
+        can :send_link, Url, :user_id => user.id 
 
     end    
   end
