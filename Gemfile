@@ -25,6 +25,7 @@ gem 'pry-nav'
 gem 'prawn'
 gem 'valid_email'
 gem 'cancan'
+gem 'url_shortener'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

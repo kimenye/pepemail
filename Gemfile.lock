@@ -237,6 +237,8 @@ GEM
     turn (0.9.6)
       ansi
     tzinfo (0.3.38)
+    url_shortener (0.0.4)
+      httparty (>= 0.4.5)
     valid_email (0.0.4)
       activemodel
       mail
@@ -285,5 +287,6 @@ DEPENDENCIES
   sqlite3
   turbolinks
   turn
+  url_shortener
   valid_email
   zurb-foundation

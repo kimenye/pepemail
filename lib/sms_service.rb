@@ -16,7 +16,14 @@ class SmsService
 		url_hash = Digest::MD5.hexdigest(contact.phone_number)
 		
 		link = "#{ENV['BASE_URL']}track/#{url_hash}/show"
-		raw_text = raw_text.gsub(/{{url}}/, link)
+
+		auth = UrlShortener::Authorize.new ENV['BITLY_USERNAME'], ENV['BITLY_PASSWORD']
+        client = UrlShortener::Client.new auth
+        result = client.shorten(link)
+        shortened_url = result.result['nodeKeyVal']['shortUrl']
+
+		raw_text = raw_text.gsub(/{{url}}/, shortened_url)
+
 		text = URI::encode(raw_text)
 
 		visit = Visit.create! :contact_id => contact.id, :url_id => url.id, :counter => 0, :url_hash => url_hash
