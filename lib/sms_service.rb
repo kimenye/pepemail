@@ -13,7 +13,7 @@ class SmsService
 		RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
 		raw_text = url.message
 		raw_text = raw_text.gsub(/{{contact_name}}/, contact.name)
-		url_hash = Digest::MD5.hexdigest(contact.phone_number)
+		url_hash = Digest::MD5.hexdigest("#{contact.phone_number}#{Time.now.to_s}")
 		
 		link = "#{ENV['BASE_URL']}track/#{url_hash}/show"
 
