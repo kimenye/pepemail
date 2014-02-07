@@ -1,3 +1,7 @@
+body.mobile {
+	background: #7f2a24;
+}
+
 .visits {
 	#main {
 		margin-top: 30px;
@@ -9,6 +13,9 @@
 			background-image: url("/assets/blueprint-dark.png");
 			background-position: top center;
 			background-repeat: repeat;
+			h3 {
+				color: #ffffff;
+			}
 		}
 	}
 }
