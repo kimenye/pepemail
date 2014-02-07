@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128203745) do
+ActiveRecord::Schema.define(version: 20140207092026) do
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20140128203745) do
     t.string   "title"
     t.datetime "from"
     t.datetime "to"
-    t.string   "message"
+    t.text     "message",     limit: 255
     t.integer  "num_clicks"
     t.string   "success_url"
     t.string   "expired_url"
