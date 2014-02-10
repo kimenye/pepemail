@@ -4,7 +4,7 @@ class PhoneConverter
 
 	def self.is_valid? number
 		normalized = PhoneConverter.normalize number
-		!normalized.nil? && normalized.length == 12 && normalized.start_with?("2547") && !normalized[/\D/]
+		!normalized.nil? && normalized.length == 12 && (normalized.start_with?("2567") || normalized.start_with?("2547")) && !normalized[/\D/]
 	end
 
 	def self.convert number
