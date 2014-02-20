@@ -17,6 +17,9 @@ class SmsService
 		
 		link = "#{ENV['BASE_URL']}track/#{url_hash}/show"
 
+		puts "Link : #{link}"
+
+		# binding.pry
 		auth = UrlShortener::Authorize.new ENV['BITLY_USERNAME'], ENV['BITLY_PASSWORD']
         client = UrlShortener::Client.new auth
         result = client.shorten(link)
@@ -26,7 +29,7 @@ class SmsService
 
 		# text = URI::encode(raw_text)
 
-		visit = Visit.create! :contact_id => contact.id, :url_id => url.id, :counter => 0, :url_hash => url_hash
+		visit = Visit.create! :contact_id => contact.id, :url_id => url.id, :counter => 0, :url_hash => url_hash, :receipt => false
 		
 		# salt = "YCZMLr2HC77f"
 		# unencrypted = "#{contact.phone_number}#{salt}"
@@ -38,15 +41,14 @@ class SmsService
 		
 		# Rails.logger.info res
 		# !res.match(/sent/).nil?
-		send_international contact.phone_number, raw_text
+		# binding.pry
+		self.send_international contact.phone_number, raw_text
 	end
-
-	
 
 	private
 
-	def send_international msisdn, message
-		xml = create_message msisdn, txt
+	def self.send_international msisdn, message
+		xml = self.create_message msisdn, message
 		options = {
 			:body => xml,
 			:headers => { "content-type" => "text/xml;charset=utf8" }
@@ -55,7 +57,7 @@ class SmsService
         binding.pry
 	end
 
-	def create_message to, message
+	def self.create_message to, message
      xml = "<?xml version=\"1.0\"?>
       <methodCall>
         <methodName>EAPIGateway.SendSMS</methodName>

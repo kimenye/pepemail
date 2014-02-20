@@ -26,6 +26,7 @@ gem 'prawn'
 gem 'valid_email'
 gem 'cancan'
 gem 'url_shortener'
+gem 'mobile-fu'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

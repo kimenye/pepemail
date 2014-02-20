@@ -9,9 +9,13 @@
 				%h3.subheader
 					= "Sorry, this link has expired :-("
 - else
-	.row
-		.small-10.columns.small-centered
-			%img{:src => "/assets/sportsman.jpg"}
-			/ .counter
-			/ 	%h3.subheader
-			/ 		Welcome #{@visit.contact.name}. Thank you for checking out our link. Enjoy it because you can only access it once.
+	- if is_mobile_device?
+		.row
+			.small-10.columns.small-centered
+				%img{:src => "/assets/sportsman.jpg"}
+	- else
+		.row
+			.small-10.columns.small-centered
+				.counter
+					%h3.subheader
+						= "Sorry, this link is only visibile on the mobile it was sent to"
