@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207092026) do
+ActiveRecord::Schema.define(version: 20140220162041) do
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 20140207092026) do
     t.integer "url_id"
     t.integer "counter"
     t.string  "url_hash"
+    t.boolean "receipt"
   end
 
 end
