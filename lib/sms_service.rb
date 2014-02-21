@@ -29,19 +29,7 @@ class SmsService
 
 		# text = URI::encode(raw_text)
 
-		visit = Visit.create! :contact_id => contact.id, :url_id => url.id, :counter => 0, :url_hash => url_hash, :receipt => false
-		
-		# salt = "YCZMLr2HC77f"
-		# unencrypted = "#{contact.phone_number}#{salt}"
-		# encrypted = Digest::MD5.hexdigest(unencrypted).to_s
-		# url = "#{ENV['SMS_GATEWAY']}&msisdn=#{contact.phone_number}&text=#{text}&pass=#{encrypted}"
-
-		# Rails.logger.info "Request #{url}"
-		# res = RestClient.get(url)
-		
-		# Rails.logger.info res
-		# !res.match(/sent/).nil?
-		# binding.pry
+		visit = Visit.create! :contact_id => contact.id, :url_id => url.id, :counter => 0, :url_hash => url_hash, :receipt => false	
 		self.send_international contact.phone_number, raw_text
 	end
 
@@ -49,12 +37,13 @@ class SmsService
 
 	def self.send_international msisdn, message
 		xml = self.create_message msisdn, message
+		puts "Request #{xml}"
 		options = {
 			:body => xml,
 			:headers => { "content-type" => "text/xml;charset=utf8" }
         }
         response = HTTParty.post(ENV['GATEWAY_URL'], options)
-        binding.pry
+        puts "Response #{response}"
 	end
 
 	def self.create_message to, message
