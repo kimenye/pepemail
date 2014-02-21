@@ -22,7 +22,6 @@ gem 'quiet_assets'
 
 gem 'pry'
 gem 'pry-nav'
-gem 'prawn'
 gem 'valid_email'
 gem 'cancan'
 gem 'url_shortener'
@@ -68,7 +67,6 @@ group :doc do
 end
 
 group :production do
-  gem "pg"
   gem 'rails_serve_static_assets'
   gem 'rails_12factor'
 end

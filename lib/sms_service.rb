@@ -69,7 +69,7 @@ class SmsService
                 <member>
                   <name>Service</name>
                   <value>
-                    <int>#{ENV['SERVICE_ID']}</int>
+                    <int>#{ENV['SERVICE_ID_KE']}</int>
                   </value>
                 </member>
                 <member>
@@ -78,7 +78,7 @@ class SmsService
                 </member>
                 <member>
                   <name>Channel</name>
-                  <value>#{ENV['CHANNEL_ID']}</value>
+                  <value>#{ENV['CHANNEL_ID_KE']}</value>
                 </member>
                 <member>
                   <name>Priority</name>
