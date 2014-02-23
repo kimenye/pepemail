@@ -9,6 +9,11 @@ class SmsService
 		!res.match(/sent/).nil?
 	end
 
+  def self.is_kenyan? number
+    number.start_with? "254"
+  end
+
+
 	def self.send_link contact, url
 		# RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
 		raw_text = url.message
@@ -69,7 +74,7 @@ class SmsService
                 <member>
                   <name>Service</name>
                   <value>
-                    <int>#{ENV['SERVICE_ID_KE']}</int>
+                    <int>#{ self.is_kenyan?(to) ? ENV['SERVICE_ID_KE'] : ENV['SEVICE_ID'] }</int>
                   </value>
                 </member>
                 <member>
@@ -78,7 +83,7 @@ class SmsService
                 </member>
                 <member>
                   <name>Channel</name>
-                  <value>#{ENV['CHANNEL_ID_KE']}</value>
+                  <value>#{ self.is_kenyan?(to) ? ENV['CHANNEL_ID_KE'] : ENV['CHANNEL_ID'] }</value>
                 </member>
                 <member>
                   <name>Priority</name>
