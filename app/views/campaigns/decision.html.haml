@@ -1,7 +1,4 @@
-- content_for :style do
-	%style{type: "text/css"}
-		body { background-color: #{@opt_in.campaign.background_color}; }
-
+= render 'style'
 #div{"data-role" => "page"}
 	.ui-content
 		%h3
