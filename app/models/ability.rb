@@ -69,6 +69,7 @@ class Ability
         can :history, Url
         can :send_link, Url, :user_id => user.id 
 
+        can :manage, Campaign
     end    
   end
 end
