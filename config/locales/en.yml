@@ -36,3 +36,7 @@ en:
         menu: Send Link
         title: Send Link
         breadcrumb: Send Link
+      launch_campaign:
+        menu: Launch
+        title: Launch
+        breadcrumb: Launch

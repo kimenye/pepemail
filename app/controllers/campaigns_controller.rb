@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
-  layout "admin"
+  layout "mobile"
+  has_mobile_fu false
   # before_filter :authenticate_user!
 
   # GET /campaigns
@@ -43,6 +44,55 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1/edit
   def edit
     @campaign = Campaign.find(params[:id])
+  end
+
+  def opt_in
+    @opt_in = CampaignOptIn.find_by_request_hash(params[:id])
+    if !@opt_in.is_expired?
+      @opt_in.user_agent = request.user_agent
+      @opt_in.ip_address = request.remote_ip
+
+      # set a cookie with the phone number, and user agent and time
+      @opt_in.cookie_hash = Digest::MD5.hexdigest("#{@opt_in.contact.phone_number}#{@opt_in.campaign.id}#{@opt_in.user_agent}")
+      cookies[:opt_in_secret] = @opt_in.cookie_hash
+
+      @opt_in.counter += 1
+      @opt_in.save!
+    end
+  end
+
+  def decision    
+    @opt_in = CampaignOptIn.find_by_request_hash(params[:id])
+    if !@opt_in.decided
+      if params.has_key?(:agree)
+        @opt_in.opted_in = true
+        @opt_in.decided = true
+        CampaignService.send_key_visual @opt_in
+      else
+        @opt_in.opted_in = false
+        @opt_in.decided = true
+      end
+      @opt_in.save!
+    end
+  end
+
+  def mms
+    @opt_in = CampaignOptIn.find_by_request_hash(params[:id])
+    if @opt_in.is_consumed?
+      render "consumed"
+    else
+      secret = request.cookies["opt_in_secret"]
+      check = Digest::MD5.hexdigest("#{@opt_in.contact.phone_number}#{@opt_in.campaign.id}#{@opt_in.user_agent}")
+      if secret == check
+        @opt_in.viewed = true
+        @opt_in.view_counter += 1
+        @opt_in.save!
+
+        render 'visual'
+      else
+        render 'consumed'
+      end
+    end
   end
 
   # POST /campaigns

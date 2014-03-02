@@ -1,0 +1,18 @@
+- content_for :style do
+	%style{type: "text/css"}
+		body { background-color: #{@opt_in.campaign.background_color}; }
+
+#div{"data-role" => "page"}
+	.ui-content
+		- if !@opt_in.is_expired? && is_mobile_device?
+			%h3
+				= @opt_in.campaign.optin_question
+			= form_tag(decision_path, method: "POST") do
+				%button.ui-btn.ui-btn-inline.ui-icon-check.ui-btn-icon-left.agree{type: "submit", name: "agree"} Yes
+				%button.ui-btn.ui-btn-inline.ui-icon-delete.ui-btn-icon-left{type: "submit", name: "disagree"} No
+		- elsif @opt_in.is_expired?
+			%h3
+				Unfortunately this link has expired.
+		- elsif !is_mobile_device?
+			%h3
+				Sorry, this link is only visibile on the mobile it was sent to.

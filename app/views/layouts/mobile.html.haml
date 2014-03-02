@@ -3,8 +3,9 @@
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= content_for?(:title) ? yield(:title) : t(:title)
-    = stylesheet_link_tag  :href => "http://fonts.googleapis.com/css?family=Varela"
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "mobile", :media => "all"
+    - if content_for?(:style) 
+      = yield(:style)
   %body.mobile{:class => "#{controller_name} #{action_name}"}
     #container.container
       #main{:role => "main"}

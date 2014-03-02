@@ -2,8 +2,10 @@ RailsAdmin.config do |config|
 	config.authorize_with :cancan
 	config.excluded_models << Item
 	config.excluded_models << Photo
-	config.excluded_models << Campaign
+	config.excluded_models << CampaignOptIn
 	# config.excluded_models << Visit
+	config.excluded_models << Renewal
+
 
 	config.model 'Contact' do
 		edit do
@@ -24,6 +26,25 @@ RailsAdmin.config do |config|
 			field :email
 			field :phone_number
 			field :source
+		end
+	end
+
+	config.model 'Campaign' do
+		edit do
+			field :name
+			field :start_date
+			field :end_date
+			field :tagline do 
+				label "Opt In Message"
+			end
+			field :optin_question
+			field :description do
+				label "Main Message"
+			end
+			field :background_color
+			field :hero  do
+				label "Key Visual"
+			end
 		end
 	end
 
@@ -77,6 +98,32 @@ RailsAdmin.config do |config|
     	export
     	bulk_delete
 
+    	member :launch_campaign do
+    		register_instance_option :link_icon  do
+    			'icon-envelope-alt'
+    		end
+
+    		register_instance_option :visible? do
+				bindings[:abstract_model].to_s == "Campaign"
+			end
+
+			register_instance_option :http_methods do
+			    [:get, :post]
+			end
+
+			register_instance_option :controller do
+				Proc.new do
+					if params.has_key?(:submit)
+						campaign = Campaign.find_by_id(params[:id]) 
+						count = CampaignService.launch_campaign campaign, current_user.id
+						redirect_to back_or_index, notice: "Campaign launched"
+					else
+						render "launch_campaign"
+					end
+				end
+			end
+    	end
+
 		collection :send_renewals do
 			register_instance_option :link_icon do
           		'icon-envelope-alt'
@@ -117,7 +164,7 @@ RailsAdmin.config do |config|
 			register_instance_option :controller do
 				Proc.new do
 					if params.has_key?(:submit)
-						renewal = Renewal.find_by_id(params[:id])
+						renewal = Renewal.find_by_id(params[:id]) 
 						RenewalService.send_renewal renewal
 						redirect_to back_or_index, notice: "Email and SMS sent"
 					else

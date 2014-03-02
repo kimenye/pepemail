@@ -1,0 +1,11 @@
+- content_for :style do
+	%style{type: "text/css"}
+		body { background-color: #{@opt_in.campaign.background_color}; }
+
+#div{"data-role" => "page"}
+	.ui-content
+		%h3
+			- if @opt_in.opted_in
+				Thank you. Look out for a message from us soon.
+			- else
+				Thank you for your time.

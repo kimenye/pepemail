@@ -9,10 +9,16 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require foundation_and_overrides
- *= require base
- *= require signup
- *= require home
- *= require visits
  *= require jquery.mobile
 */
+
+.agree {
+	background-color: green;
+}
+
+.visual {
+	img {
+		display: block;
+		margin: auto;		
+	}
+}

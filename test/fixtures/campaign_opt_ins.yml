@@ -1,0 +1,20 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  campaign: 
+  contact: 
+  user_agent: MyString
+  cookie_hash: MyString
+  ip_address: MyString
+  expiry: 2014-03-01 11:37:49
+  opted_in: false
+
+two:
+  campaign: 
+  contact: 
+  user_agent: MyString
+  cookie_hash: MyString
+  ip_address: MyString
+  expiry: 2014-03-01 11:37:49
+  opted_in: false

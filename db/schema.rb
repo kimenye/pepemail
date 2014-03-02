@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220162041) do
+ActiveRecord::Schema.define(version: 20140302090350) do
+
+  create_table "campaign_opt_ins", force: true do |t|
+    t.integer  "campaign_id"
+    t.integer  "contact_id"
+    t.string   "user_agent"
+    t.string   "cookie_hash"
+    t.string   "ip_address"
+    t.datetime "expiry"
+    t.boolean  "opted_in"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "request_hash"
+    t.integer  "counter"
+    t.integer  "view_counter"
+    t.boolean  "viewed"
+    t.boolean  "decided",      default: false
+  end
+
+  add_index "campaign_opt_ins", ["campaign_id"], name: "index_campaign_opt_ins_on_campaign_id"
+  add_index "campaign_opt_ins", ["contact_id"], name: "index_campaign_opt_ins_on_contact_id"
 
   create_table "campaigns", force: true do |t|
     t.datetime "start_date"
@@ -34,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140220162041) do
     t.string   "bottom_content_type"
     t.integer  "bottom_file_size"
     t.datetime "bottom_updated_at"
+    t.string   "name"
+    t.text     "optin_question"
   end
 
   add_index "campaigns", ["item_id"], name: "index_campaigns_on_item_id"
@@ -46,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140220162041) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "source"
+    t.boolean  "opted_in"
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
