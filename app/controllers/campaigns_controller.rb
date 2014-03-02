@@ -81,6 +81,7 @@ class CampaignsController < ApplicationController
     if @opt_in.is_consumed?
       render "consumed"
     else
+      binding.pry
       secret = request.cookies["opt_in_secret"]
       check = Digest::MD5.hexdigest("#{@opt_in.contact.phone_number}#{@opt_in.campaign.id}#{@opt_in.user_agent}")
       if secret == check
