@@ -83,7 +83,7 @@ class CampaignsController < ApplicationController
     else
       binding.pry
       secret = request.cookies["opt_in_secret"]
-      check = Digest::MD5.hexdigest("#{@opt_in.contact.phone_number}#{@opt_in.campaign.id}#{@opt_in.user_agent}")
+      check = Digest::MD5.hexdigest("#{@opt_in.contact.phone_number}#{@opt_in.campaign.id}#{request.user_agent}")
       if secret == check
         @opt_in.viewed = true
         @opt_in.view_counter += 1
