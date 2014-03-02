@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.cloudafrica.net/
   specs:
     Ascii85 (1.0.2)
     actionmailer (4.0.0)
