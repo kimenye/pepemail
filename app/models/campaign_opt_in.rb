@@ -4,7 +4,7 @@ class CampaignOptIn < ActiveRecord::Base
 
   def is_expired?
   	num = ENV['LINK_ATTEMPTS'].to_i
-  	counter > 0 || Time.now > expiry
+  	counter > num || Time.now > expiry
   end
 
   def is_consumed?
