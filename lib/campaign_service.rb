@@ -16,8 +16,8 @@ class CampaignService
 			raw_text = campaign.tagline
 			raw_text = raw_text.gsub(/{{url}}/, short_link)
 
-			# SmsService.send_international contact.phone_number, raw_text
 			puts raw_text
+			SmsService.send_international contact.phone_number, raw_text			
 		end
 	end
 
@@ -30,7 +30,7 @@ class CampaignService
 		raw_text = campaign_opt_in.campaign.description
 		message = raw_text.gsub(/{{url}}/, short_link)
 
-		# SmsService.send_international campaign_opt_in.contact.phone_number, message
 		puts message
+		SmsService.send_international campaign_opt_in.contact.phone_number, message		
 	end
 end
