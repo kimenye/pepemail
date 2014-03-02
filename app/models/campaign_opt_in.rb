@@ -9,6 +9,6 @@ class CampaignOptIn < ActiveRecord::Base
 
   def is_consumed?
   	num = ENV['LINK_ATTEMPTS'].to_i
-  	decided && viewed && view_counter > 0
+  	decided && viewed && view_counter >= num
   end
 end
