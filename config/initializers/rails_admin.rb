@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
 	config.authorize_with :cancan
 	config.excluded_models << Item
 	config.excluded_models << Photo
-	config.excluded_models << CampaignOptIn
+	# config.excluded_models << CampaignOptIn
 	# config.excluded_models << Visit
 	config.excluded_models << Renewal
 
