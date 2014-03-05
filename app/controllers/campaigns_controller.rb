@@ -49,11 +49,13 @@ class CampaignsController < ApplicationController
   end
 
   def opt_in
-    binding.pry
     @opt_in = CampaignOptIn.find_by_request_hash(params[:id])
     if !@opt_in.is_expired?
       @opt_in.user_agent = request.user_agent
       @opt_in.ip_address = request.remote_ip
+
+      puts "User Agent: #{request.user_agent}"
+      puts "IP Address: #{request.remote_ip}"
 
       # set a cookie with the phone number, and user agent and time
       @opt_in.cookie_hash = Digest::MD5.hexdigest("#{@opt_in.contact.phone_number}#{@opt_in.campaign.id}#{@opt_in.user_agent}")
