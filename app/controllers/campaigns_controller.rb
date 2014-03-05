@@ -3,7 +3,7 @@ class CampaignsController < ApplicationController
   has_mobile_fu false
   # before_filter :authenticate_user!
   # before_filter :is_mobile 
-  before_action :is_mobile_device
+  skip_before_action :is_mobile_device, except: [:opt_in, :mms, :decision]
 
   # GET /campaigns
   # GET /campaigns.json
