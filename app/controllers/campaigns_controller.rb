@@ -2,6 +2,8 @@ class CampaignsController < ApplicationController
   layout "mobile"
   has_mobile_fu false
   # before_filter :authenticate_user!
+  # before_filter :is_mobile 
+  before_action :is_mobile_device
 
   # GET /campaigns
   # GET /campaigns.json
@@ -47,6 +49,7 @@ class CampaignsController < ApplicationController
   end
 
   def opt_in
+    binding.pry
     @opt_in = CampaignOptIn.find_by_request_hash(params[:id])
     if !@opt_in.is_expired?
       @opt_in.user_agent = request.user_agent
@@ -138,4 +141,14 @@ class CampaignsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+
+    def is_mobile_device
+      unless is_mobile_device?
+        @opt_in = CampaignOptIn.find_by_request_hash(params[:id])
+        flash[:error] = "You must be on a mobile device to view this content"
+        render "device"
+      end
+    end
 end

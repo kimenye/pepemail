@@ -5,7 +5,7 @@ class CampaignService
 		Contact.where("user_id = ? ", user_id).each do |contact|
 
 			url_hash = Digest::MD5.hexdigest("#{contact.phone_number}#{Time.now.to_s}#{campaign.id}")
-			optin = CampaignOptIn.create! contact_id: contact.id, campaign_id: campaign.id, request_hash: url_hash, expiry: 1.hour.from_now, counter: 0, view_counter: 0, viewed:false
+			optin = CampaignOptIn.create! contact_id: contact.id, campaign_id: campaign.id, request_hash: url_hash, expiry: 1.day.from_now, counter: 0, view_counter: 0, viewed:false
 
 			link = "#{ENV['BASE_URL']}campaigns/#{url_hash}/opt_in"
 			puts "Link : #{link}"
