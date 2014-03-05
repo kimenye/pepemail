@@ -1,9 +1,8 @@
 class CampaignsController < ApplicationController
   layout "mobile"
   has_mobile_fu false
-  # before_filter :authenticate_user!
-  # before_filter :is_mobile 
-  skip_before_action :is_mobile_device, except: [:opt_in, :mms, :decision]
+  
+  before_action :is_mobile_device, only: [:opt_in, :mms, :decision]
 
   # GET /campaigns
   # GET /campaigns.json
@@ -147,10 +146,14 @@ class CampaignsController < ApplicationController
   private 
 
     def is_mobile_device
-      unless is_mobile_device?
+      unless is_mobile_device? && !is_bot?
         @opt_in = CampaignOptIn.find_by_request_hash(params[:id])
         flash[:error] = "You must be on a mobile device to view this content"
         render "device"
       end
+    end
+
+    def is_bot?
+      request.user_agent == ENV['DISALLOWED_USER_AGENTS']
     end
 end

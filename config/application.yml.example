@@ -8,3 +8,4 @@ development:
   CHANNEL_ID: <CHANNEL_ID>
   PASSWORD: <PASSWORD>
   GATEWAY_URL: <URL>
+  DISALLOWED_USER_AGENTS: "Mozilla/5.0 (compatible; TweetmemeBot/3.0; +http://tweetmeme.com/)"
